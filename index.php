@@ -24,13 +24,13 @@
 <!-- insert all preloaded PHP scripts here to autoload all data before rendering page contents, manipulated page content scritps go on bottom -->
 <?php
 //finds logged data entry that can populate table on down the page
-include('conn.php') //changed to /
-$dBLogConnect = "SELECT * FROM FMusers";
-$resultLog = $conn->query($dBLogConnect);
+// include('conn.php') //changed to /
+// $dBLogConnect = "SELECT * FROM FMusers";
+// $resultLog = $conn->query($dBLogConnect);
 
-if(!$resultLog){
-  echo $conn->error;
-}
+// if(!$resultLog){
+//   echo $conn->error;
+// }
 ?>
 <head>
 
@@ -162,24 +162,24 @@ if(!$resultLog){
                                     <tbody>
                                         <!-- gets progress from DB table, then displays -->
                                         <?php
-                                           //must be name of result to check dB data on top, fetchs data
-                                            while($row=$resultLog->fetch_assoc()){
+                                        //    //must be name of result to check dB data on top, fetchs data
+                                        //     while($row=$resultLog->fetch_assoc()){
                                                 
-                                                //var names = row of data with explicit dB row name used
-                                                $build =$row['BuildingID'];
-                                                $room =$row['RoomID']; 
-                                                $currentF =$row['CurrentFootfall']; 
-                                                $Times =$row['Time'];       
-                                            //now echo to display vars with fetched data from dB
-                                              echo "
+                                        //         //var names = row of data with explicit dB row name used
+                                        //         $build =$row['BuildingID'];
+                                        //         $room =$row['RoomID']; 
+                                        //         $currentF =$row['CurrentFootfall']; 
+                                        //         $Times =$row['Time'];       
+                                        //     //now echo to display vars with fetched data from dB
+                                        //       echo "
                                               
-                                              <tr>
-                                              <td>$build</td> 
-                                              <td>$room</td> 
-                                              <td>$currentF</td>
-                                              <td>$Times</td>
-                                              </tr>";
-                                            }
+                                        //       <tr>
+                                        //       <td>$build</td> 
+                                        //       <td>$room</td> 
+                                        //       <td>$currentF</td>
+                                        //       <td>$Times</td>
+                                        //       </tr>";
+                                        //     }
                                         ?>
 
                                     </tbody>
