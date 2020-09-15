@@ -23,14 +23,14 @@
 </script>
 <!-- insert all preloaded PHP scripts here to autoload all data before rendering page contents, manipulated page content scritps go on bottom -->
 <?php
-//finds logged data entry that can populate table on down the page
-// include('conn.php') //changed to /
-// $dBLogConnect = "SELECT * FROM FMusers";
-// $resultLog = $conn->query($dBLogConnect);
+// finds logged data entry that can populate table on down the page
+include('conn.php') //changed to /
+$dBLogConnect = "SELECT * FROM FMusers";
+$resultLog = $conn->query($dBLogConnect);
 
-// if(!$resultLog){
-//   echo $conn->error;
-// }
+if(!$resultLog){
+  echo $conn->error;
+}
 ?>
 <head>
 
@@ -48,28 +48,28 @@
 
 
  <!-- Queens logo fix -->
-    <!-- ****** faviconit.com favicons ****** -->
-    <link rel="shortcut icon" href="/public/img/faviconit/favicon.ico">
-  <link rel="icon" sizes="16x16 32x32 64x64" href="/public/img/faviconit/favicon.ico">
-  <link rel="icon" type="image/png" sizes="196x196" href="/public/img/faviconit/favicon-192.png">
-  <link rel="icon" type="image/png" sizes="160x160" href="/public/img/faviconit/favicon-160.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="/public/img/faviconit/favicon-96.png">
-  <link rel="icon" type="image/png" sizes="64x64" href="/public/img/faviconit/favicon-64.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/public/img/faviconit/favicon-32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/public/img/faviconit/favicon-16.png">
-  <link rel="apple-touch-icon" href="/public/img/faviconit/favicon-57.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="/public/img/faviconit/favicon-114.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="/public/img/faviconit/favicon-72.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="/public/img/faviconit/favicon-144.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="/public/img/faviconit/favicon-60.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="/public/img/faviconit/favicon-120.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="/public/img/faviconit/favicon-76.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="/public/img/faviconit/favicon-152.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/public/img/faviconit/favicon-180.png">
-  <meta name="msapplication-TileColor" content="#FFFFFF">
-  <meta name="msapplication-TileImage" content="/public/img/faviconit/favicon-144.png">
-  <meta name="msapplication-config" content="/public/img/faviconit/browserconfig.xml">
-  <!-- ****** faviconit.com favicons ****** -->
+	<!-- ****** faviconit.com favicons ****** -->
+	<link rel="shortcut icon" href="img/favicon.ico">
+	<link rel="icon" sizes="16x16 32x32 64x64" href="img/faviconit/favicon.ico">
+	<link rel="icon" type="image/png" sizes="196x196" href="img/faviconit/favicon-192.png">
+	<link rel="icon" type="image/png" sizes="160x160" href="img/faviconit/favicon-160.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="img/faviconit/favicon-96.png">
+	<link rel="icon" type="image/png" sizes="64x64" href="img/faviconit/favicon-64.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="img/faviconit/favicon-32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="img/faviconit/favicon-16.png">
+	<link rel="apple-touch-icon" href="img/faviconit/favicon-57.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="img/faviconit/favicon-114.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="img/faviconit/favicon-72.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="img/faviconit/favicon-144.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="img/faviconit/favicon-60.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="img/faviconit/favicon-120.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="img/faviconit/favicon-76.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="img/faviconit/favicon-152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="img/faviconit/favicon-180.png">
+	<meta name="msapplication-TileColor" content="#FFFFFF">
+	<meta name="msapplication-TileImage" content="img/faviconit/favicon-144.png">
+	<meta name="msapplication-config" content="img/faviconit/browserconfig.xml">
+	<!-- ****** faviconit.com favicons ****** -->
 
 </head>
 
@@ -144,11 +144,10 @@
                                     <h2>Current footfall in all buildings Demo</h2>
 
                                 </div>
-                                    "<script> resultLo </script>";
+                                    <!-- "<script> resultLo </script>"; -->
                                        <!-- //added for testing -->
-                                       <form action="/" method="post">
-                                       <?php console.log("pass vars");?>
-                                      </form> 
+                                       <!-- <form action="/" method="post">
+                                      </form>  -->
                                      <!-- table of clients fatLoss Progress -->
                                      <table class="table table-hover table-dark">
                                     <thead>
@@ -162,24 +161,24 @@
                                     <tbody>
                                         <!-- gets progress from DB table, then displays -->
                                         <?php
-                                        //    //must be name of result to check dB data on top, fetchs data
-                                        //     while($row=$resultLog->fetch_assoc()){
+                                           //must be name of result to check dB data on top, fetchs data
+                                            while($row=$resultLog->fetch_assoc()){
                                                 
-                                        //         //var names = row of data with explicit dB row name used
-                                        //         $build =$row['BuildingID'];
-                                        //         $room =$row['RoomID']; 
-                                        //         $currentF =$row['CurrentFootfall']; 
-                                        //         $Times =$row['Time'];       
-                                        //     //now echo to display vars with fetched data from dB
-                                        //       echo "
+                                                //var names = row of data with explicit dB row name used
+                                                $build =$row['BuildingID'];
+                                                $room =$row['RoomID']; 
+                                                $currentF =$row['CurrentFootfall']; 
+                                                $Times =$row['Time'];       
+                                            //now echo to display vars with fetched data from dB
+                                              echo "
                                               
-                                        //       <tr>
-                                        //       <td>$build</td> 
-                                        //       <td>$room</td> 
-                                        //       <td>$currentF</td>
-                                        //       <td>$Times</td>
-                                        //       </tr>";
-                                        //     }
+                                              <tr>
+                                              <td>$build</td> 
+                                              <td>$room</td> 
+                                              <td>$currentF</td>
+                                              <td>$Times</td>
+                                              </tr>";
+                                            }
                                         ?>
 
                                     </tbody>
@@ -313,7 +312,7 @@
 
 //                 //may not be needed
 //                 session_destroy(); 
-}
+//}
 
 ?>
     <!-- Js Plugins -->
