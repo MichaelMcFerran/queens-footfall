@@ -1,0 +1,538 @@
+/*----------------------------------------*/
+html,
+body {
+  height: 100%;
+  font-family: "Roboto", sans-serif;
+  background-color: black;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  margin: 0;
+  color: #111111;
+  font-weight: 400;
+  font-family: "Oswald", sans-serif;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+h2 {
+  font-size: 36px;
+}
+
+h3 {
+  font-size: 30px;
+}
+
+h4 {
+  font-size: 24px;
+}
+
+h5 {
+  font-size: 18px;
+}
+
+h6 {
+  font-size: 16px;
+}
+
+p {
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+  color: #8f8fa8;
+  font-weight: 400;
+  line-height: 26px;
+  margin: 0 0 15px 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+input:focus,
+select:focus,
+button:focus,
+textarea:focus {
+  outline: none;
+}
+
+a:hover,
+a:focus {
+  text-decoration: none;
+  outline: none;
+  color: #ffffff;
+}
+
+ul,
+ol {
+  padding: 0;
+  margin: 0;
+}
+
+/*---------------------
+  Helper CSS
+-----------------------*/
+.section-title {
+  margin-bottom: 45px;
+}
+
+.section-title h2 {
+  color: #191919;
+  font-size: 36px;
+  font-weight: 500;
+  padding-left: 12px;
+  margin-bottom: 20px;
+  line-height: 26px;
+  position: relative;
+}
+
+
+.section-title p {
+  color: #6e6e6e;
+  line-height: 24px;
+}
+
+.set-bg {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top center;
+  background-color: rgb(0, 0, 0);
+}
+
+
+/* buttons */
+.primary-btn {
+  display: inline-block;
+  font-size: 12px;
+  font-family: "Oswald", sans-serif;
+  padding: 12px 39px;
+  color: #ffffff;
+  background: darkgray;
+  line-height: normal;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* from w3 Schools template */
+/* Preloader- unused*/
+#preloader {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: #000;
+}
+
+.loader {
+  border: 16px solid #f3f3f3; 
+  border-top: 16px solid #3498db; 
+  border-radius: 60px;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  animation: spin 4s linear infinite;
+  background-color: rgb(34, 32, 32);
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+/*---------------------
+  Header
+-----------------------*/
+.header-section {
+  padding-top: 35px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 99;
+}
+.header-section.header-normal {
+  position: relative;
+  padding-top: 0;
+}
+.header-section.header-normal .logo {
+  padding: 35px 0;
+}
+.header-section.header-normal .nav-menu .mainmenu ul li {
+  margin-right: 45px;
+}
+.header-section.header-normal .nav-menu .mainmenu ul li.active a {
+  color: #3498db;
+}
+.header-section.header-normal .nav-menu .mainmenu ul li a {
+  color: #191919;
+  padding: 33px 5px;
+  -webkit-transition: 0.2s;
+  -o-transition: 0.2s;
+  transition: 0.2s;
+}
+.header-section.header-normal .nav-menu .mainmenu ul li:hover .dropdown {
+  top: 94px;
+}
+.header-section.header-normal .nav-menu .mainmenu ul li:hover > a {
+  color: #3498db;
+}
+.header-section.header-normal .nav-menu .mainmenu ul li .dropdown {
+  top: 124px;
+}
+.header-section.header-normal .nav-menu .mainmenu ul li .dropdown li a {
+  padding: 10px 20px;
+  color: #ffffff;
+}
+.header-section.header-normal .nav-menu .mainmenu ul li .dropdown li a:hover {
+  color: #252525;
+}
+.header-section.header-normal .nav-menu .nav-right {
+  padding: 39px 0;
+}
+.header-section.header-normal .nav-menu .nav-right i {
+  color: #191919;
+}
+
+.logo {
+  float: left;
+}
+.logo a {
+  display: inline-block;
+}
+
+.nav-menu {
+  text-align: right;
+}
+.nav-menu .mainmenu {
+  display: inline-block;
+}
+.nav-menu .mainmenu ul li {
+  display: inline-block;
+  list-style: none;
+  margin-right: 55px;
+  position: relative;
+}
+.nav-menu .mainmenu ul li.active a {
+  color: #3498db;
+}
+.nav-menu .mainmenu ul li a {
+  color: #ffffff;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 500;
+  line-height: 28px;
+  -webkit-transition: 0.2s;
+  -o-transition: 0.2s;
+  transition: 0.2s;
+  display: block;
+  font-family: "Oswald", sans-serif;
+}
+.nav-menu .mainmenu ul li:hover .dropdown {
+  opacity: 1;
+  visibility: visible;
+  top: 40px;
+}
+/* colour change on mouse over - big media see main.js*/
+.nav-menu .mainmenu ul li:hover > a {
+  color: #3498db;
+}
+/* allows for dropdow- big media */
+.nav-menu .mainmenu ul li .dropdown {
+  position: absolute;
+  left: 0;
+  top: 70px;
+  width: 180px;
+  background: #3498db;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+  z-index: 99;
+}
+.nav-menu .mainmenu ul li .dropdown li {
+  display: block;
+  margin-right: 0;
+}
+.nav-menu .mainmenu ul li .dropdown li a {
+  text-align: left;
+  text-transform: capitalize;
+  padding: 10px 20px;
+  color: #ffffff;
+}
+.nav-menu .mainmenu ul li .dropdown li a:hover {
+  color: #252525;
+}
+.nav-menu .mainmenu ul li:last-child .dropdown {
+  left: auto;
+  right: 0;
+}
+
+/* Hides mobile menu when full width display */
+.slicknav_menu {
+  display: none;
+}
+
+.single-hero-item {
+  height: 950px;
+  padding-top: 358px;
+}
+.single-hero-item .hero-text {
+  text-align: center;
+}
+.single-hero-item .hero-text h4 {
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  margin-bottom: 36px;
+  position: relative;
+  top: 50px;
+ 
+}
+.single-hero-item .hero-text h1 {
+  color: #ffffff;
+  font-size: 70px;
+  font-weight: 700;
+  letter-spacing: 22px;
+  text-transform: uppercase;
+  margin-bottom: 64px;
+  position: relative;
+  top: 50px;
+}
+
+.single-hero-item .hero-text .primary-btn {
+  position: relative;
+  top: 100px;
+
+}
+
+
+
+/*---------------------
+  Footer
+-----------------------*/
+.footer-section {
+  overflow: hidden;
+}
+
+.map-location {
+  height: 610px;
+  position: relative;
+  margin-left: -15px;
+  margin-right: -15px;
+}
+.map-location iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+
+.footer-form {
+  margin-left: -15px;
+  margin-right: -15px;
+  height: 610px;
+  padding-left: 85px;
+  padding-top: 80px;
+}
+.footer-form .section-title h2 {
+  color: #ffffff;
+  margin-bottom: 28px;
+  font-weight: 600;
+}
+.footer-form .section-title p {
+  color: #ffffff;
+}
+.footer-form form input {
+  width: 100%;
+  height: 44px;
+  border: 1px solid #ebebeb;
+  margin-bottom: 20px;
+  padding-left: 20px;
+}
+.footer-form form textarea {
+  width: 100%;
+  height: 100px;
+  border: 1px solid #ebebeb;
+  padding-left: 20px;
+  padding-top: 10px;
+  margin-bottom: 25px;
+  resize: none;
+}
+.footer-form form button {
+  font-size: 14px;
+  font-family: "Oswald", sans-serif;
+  color: #ffffff;
+  background: #3498db;
+  border: 0px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 10px 52px 10px 39px;
+  position: relative;
+  cursor: pointer;
+}
+.footer-form form button i {
+  font-size: 10px;
+  position: absolute;
+  right: 35px;
+  top: 16px;
+}
+
+/* Login Page */
+
+.loginPage{
+  margin-top: 80px;
+  padding-top: 10px;
+  
+}
+
+#loginBtn{
+  margin-left: 20px;
+}
+/* change container so sits below navbar on about page, change for rest*/
+.menutop{
+  margin-top: 80px;
+}
+
+/* space for gallery on about page */
+.mainContent {
+   margin-left: 0px;
+    padding: 10px 20px 20px 30px;
+
+ margin-top: 0px; 
+}
+/* trainer - register page */
+#registerBtnT{
+  margin-bottom: 5px;
+}
+
+
+/* Workout Pages- Crossfit, calisthenics, bodybuilding */
+.BlogTitleText{
+  color: whitesmoke;
+}
+
+
+
+
+
+/*--------------------------------- Media device sizes -----------------------------*/
+@media only screen and (min-width: 1200px) {
+  /* .container {
+    max-width: 1170px;
+  } */
+
+  .single-hero-item .hero-text h1 {
+    font-size: 50px;
+  }
+}
+
+@media only screen and (max-width: 990px) {
+  .single-hero-item .hero-text h1 {
+    font-size: 40px;
+  }
+
+/* puts contact form at the bottom */
+  .footer-form {
+    padding: 50px 80px 45px 80px;
+  }
+
+}
+/* 480px + Device- puts menu in drop down function for touch based devices*/
+@media only screen and (max-width: 767px) {
+  .single-hero-item .hero-text h1 {
+    font-size: 30px;
+  }
+  /* reshow mobile menu display */
+  .slicknav_menu {
+    display: block;
+    background: transparent;
+    padding: 0;
+  }
+
+  /* hide fullscreen menu */
+  .nav-menu .mainmenu {
+    display: none;
+  }
+
+  .nav-menu {
+    position: relative;
+  }
+
+  .nav-right {
+    position: absolute;
+    right: 110px;
+    top: 7px;
+  }
+
+  .slicknav_btn {
+    margin: 0;
+  }
+
+  .slicknav_nav {
+    padding: 15px 10px;
+    background: #222;
+  }
+
+  .slicknav_nav a {
+    padding: 10px 10px;
+    margin: 0;
+  }
+
+  .slicknav_nav a:hover {
+    border-radius: 0;
+    background:#3498db;
+    color: #fff;
+  }
+
+  .slicknav_nav ul {
+    margin: 0;
+  }
+
+  .hero-items .owl-nav button[type=button] {
+    left: 5px;
+  }
+
+  .hero-items .owl-nav button[type=button].owl-next {
+    right: 5px;
+  }
+
+  .single-hero-item {
+    padding-top: 200px;
+  }
+
+
+
+/*  mobiles*/
+@media only screen  and (max-width: 479px) {
+
+  .single-hero-item .hero-text h1 {
+    font-size: 20px;
+  }
+
+  .map-location  {
+    width: 100%;
+    padding: 0%;
+    margin: 0%;
+  }
+
+
+  .footer-form {
+    padding: 10px 20px 10px 20px;
+  }
+
+  .footer-form h2 {
+    font-size: 16px;
+  }
+
+  .footer-form p {
+    font-size: 12px;
+  }
+
+ 
+}
+}
