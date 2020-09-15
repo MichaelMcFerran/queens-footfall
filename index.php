@@ -25,7 +25,8 @@
 <?php
 // finds logged data entry that can populate table on down the page
 include('conn.php'); //changed to /
-$dBLogConnect = "SELECT * FROM FMusers";
+$dBLogConnect = "SELECT * FROM FMusers ORDER BY `Time` DESC
+LIMIT 10"; //added limit for media device viewing
 $resultLog = $conn->query($dBLogConnect);
 
 if(!$resultLog){
@@ -36,7 +37,7 @@ if(!$resultLog){
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Monitor Footfall CSB </title>
+    <title>Monitor Footfall Queens</title>
     <!-- Css -->
     <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="/css/slicknav.min.css" type="text/css">
@@ -49,7 +50,7 @@ if(!$resultLog){
 
  <!-- Queens logo fix -->
 	<!-- ****** faviconit.com favicons ****** -->
-	<link rel="shortcut icon" href="img/favicon.ico">
+	<link rel="shortcut icon" href="imh/favicon.ico">
 	<link rel="icon" sizes="16x16 32x32 64x64" href="img/faviconit/favicon.ico">
 	<link rel="icon" type="image/png" sizes="196x196" href="img/faviconit/favicon-192.png">
 	<link rel="icon" type="image/png" sizes="160x160" href="img/faviconit/favicon-160.png">
@@ -141,7 +142,7 @@ if(!$resultLog){
                         <div class="row">
                             <div class="col-lg-10">
                                 <div class="section-title">
-                                    <h2>Current footfall in all buildings Demo</h2>
+                                    <h2>Current footfall</h2>
 
                                 </div>
                                     <!-- "<script> resultLo </script>"; -->
