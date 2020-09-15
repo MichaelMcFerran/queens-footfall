@@ -38,9 +38,9 @@ if(!$resultLog){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Monitor Footfall CSB </title>
     <!-- Css -->
-    <link rel="stylesheet" href="css/public/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="css/public/css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="css/public/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="/css/owl.carousel.min.css" type="text/css">
    
     <!-- custom styles -->
     <!-- <link rel="stylesheet" href="../css/style.css" type="text/css"> -->
