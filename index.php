@@ -328,21 +328,21 @@ if(!$resultLog){
     <!-- script for conencting to Pi  -->
     <script type="text/javascript">
 
-    //connect to GPIO of PI
-    var socket = io.connect('/');
-	//jquery takes changed state of toggle on page and passes state to server
-    // $("#myonoffswitch").change(function(){
-    //   socket.emit("stateChanged", this.checked);
+    // //connect to GPIO of PI
+    // var socket = io.connect('/');
+	// //jquery takes changed state of toggle on page and passes state to server
+    // // $("#myonoffswitch").change(function(){
+    // //   socket.emit("stateChanged", this.checked);
+    // // });
+    
+    // socket.on("updatecount", function (count) {
+    // 	console.log("The count is: " + count); //checks count is received
+	// //js below changes checkbox on html page dynamically as state is send from PI-server-HTML
+    // // var personCount = document.getElementById("myCount");
+    // // personCount.firstChild.nodeValue = count;
+    // document.getElementById("myCount").innerHTML = count;
+    
     // });
-    
-    socket.on("updatecount", function (count) {
-    	console.log("The count is: " + count); //checks count is received
-	//js below changes checkbox on html page dynamically as state is send from PI-server-HTML
-    // var personCount = document.getElementById("myCount");
-    // personCount.firstChild.nodeValue = count;
-    document.getElementById("myCount").innerHTML = count;
-    
-    });
 	
     </script>
 
