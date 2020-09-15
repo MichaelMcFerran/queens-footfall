@@ -24,13 +24,13 @@
 <!-- insert all preloaded PHP scripts here to autoload all data before rendering page contents, manipulated page content scritps go on bottom -->
 <?php
 // finds logged data entry that can populate table on down the page
-// include('conn.php') //changed to /
-// $dBLogConnect = "SELECT * FROM FMusers";
-// $resultLog = $conn->query($dBLogConnect);
+include('conn.php'); //changed to /
+$dBLogConnect = "SELECT * FROM FMusers";
+$resultLog = $conn->query($dBLogConnect);
 
-// if(!$resultLog){
-//   echo $conn->error;
-// }
+if(!$resultLog){
+  echo $conn->error;
+}
 ?>
 <head>
 
