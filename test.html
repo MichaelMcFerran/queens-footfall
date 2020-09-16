@@ -22,7 +22,7 @@
 
 </script>
 <!-- insert all preloaded PHP scripts here to autoload all data before rendering page contents, manipulated page content scritps go on bottom -->
-<?php
+<!-- <?php
 // finds logged data entry that can populate table on down the page
 include('conn.php'); //changed to /
 $dBLogConnect = "SELECT * FROM FMusers ORDER BY `Time` DESC
@@ -32,7 +32,7 @@ $resultLog = $conn->query($dBLogConnect);
 if(!$resultLog){
   echo $conn->error;
 }
-?>
+?> -->
 <head>
 
     <meta charset="UTF-8">
@@ -81,7 +81,7 @@ if(!$resultLog){
     </div> -->
 
     <!-- Navigation Bar Start -->
-    <!-- <header class="header-section">
+    <header class="header-section">
         <div class="container">
             <div class="logo">
                 <a href="/index.php">
@@ -109,30 +109,30 @@ if(!$resultLog){
             </div>
             <div id="mobile-menu-wrap"></div>
         </div>
-    </header> -->
+    </header>
     <!-- Nav Bar End -->
 
 
-<!-- <div class="site-wrapper">
+<div class="site-wrapper">
   <div class="site-wrapper-inner">
     <div class="cover-container">
       <div class="inner cover">
         <h1 class="cover-heading">CSB foyer</h1> -->
-        <!-- <div class="alert alert-success" role="alert">
+        <div class="alert alert-success" role="alert">
             Current People : <p id ="myCount"> </p>
-          </div> -->
+          </div>
           <!-- below is for front end to pi manipulation -->
-      <!-- <h1 class="cover-heading">PI Button state</h1>
+       <h1 class="cover-heading">PI Button state</h1>
           <div class="onoffswitch" style="margin:0px auto;">
             <div class="switch demo3">
               <input type="checkbox" id="mybuttonGPIO">
               <label><i></i></label>
             </div>
-          </div> -->
-      <!-- </div> -->
-    <!-- </div>
+          </div> 
+       </div>
+     </div>
   </div>
-</div> -->
+</div>
 
 <div class="container-fluid">
         <div class="row">
@@ -161,7 +161,7 @@ if(!$resultLog){
                                     </thead>
                                     <tbody>
                                         <!-- gets progress from DB table, then displays -->
-                                        <?php
+                                        <!-- <?php
                                            //must be name of result to check dB data on top, fetchs data
                                             while($row=$resultLog->fetch_assoc()){
                                                 
@@ -180,7 +180,7 @@ if(!$resultLog){
                                               <td>$Times</td>
                                               </tr>";
                                             }
-                                        ?>
+                                        ?> -->
 
                                     </tbody>
                                 </table>
@@ -216,7 +216,7 @@ if(!$resultLog){
         <div>
     </div>
     <!-- Hero/carousel Section Begin -->
-    <!-- <section class="hero-section">
+    <section class="hero-section">
         <div class="hero-items owl-carousel">
             <div class="single-hero-item set-bg" data-setbg="#">
                 <div class="container">
@@ -246,7 +246,7 @@ if(!$resultLog){
                 </div>
             </div>
         </div>
-    </section> -->
+    </section>
     <!-- Hero Section End -->
 
 
@@ -292,7 +292,7 @@ if(!$resultLog){
     </footer> -->
     <!-- Footer Section End -->
 
-<?php
+<!-- <?php
 
 // if(isset($_POST['registerInterest'])){
 
@@ -315,7 +315,7 @@ if(!$resultLog){
 //                 session_destroy(); 
 //}
 
-?>
+?> -->
     <!-- Js Plugins -->
     <script src="/js/jquery-3.3.1.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
