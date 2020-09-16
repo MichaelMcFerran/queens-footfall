@@ -97,7 +97,7 @@ if(!$resultLog){
                             if(!$nameResult){
                             echo $conn->error;
                             } else {
-                                echo "$nameResult";
+                                echo $nameResult;
                             }
                             ?>
                         </h4>
@@ -133,7 +133,7 @@ if(!$resultLog){
                                 </div>
                             </div>
                         </form>
-                        <a href="./Admin/login.php" class="primary-btn">Download Logging</a>
+                        <a href="" class="primary-btn">Download Logging</a>
                     </div>
                 </div>
             </div>
@@ -141,9 +141,20 @@ if(!$resultLog){
             <div class="single-hero-item set-bg" data-setbg="#">
                 <div class="container">
                     <div class="hero-text">
-                        <h4>Building 2</h4>
+                    <h4>Building 2
+                            <?php 
+                            // $building2 = "SELECT DISTINCT buildingName FROM `FMBuildings` WHERE BuildingID =2";
+
+                            // $nameResult2 = $conn->query($building2);
+                            // if(!$nameResult2){
+                            // echo $conn->error;
+                            // } else {
+                            //     echo "$nameResult2";
+                            // }
+                            ?>
+                        </h4>
                         <h1>Room selection</h1>
-                        <a href="./Admin/login.php" class="primary-btn">Download logging</a>
+                        <a href="" class="primary-btn">Download logging</a>
                     </div>
                 </div>
             </div>
