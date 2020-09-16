@@ -95,8 +95,8 @@ if(!$resultLog){
                             if(!$nameResult){
                             echo $conn->error;
                             } else {
-                                // echo $nameResult;
-                                echo "yo";
+                                 echo $nameResult;
+                                //echo "yo";S
                             }
                             ?>
                         </h4>
