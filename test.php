@@ -91,14 +91,14 @@ if(!$resultLog){
                     <div class="hero-text">
                         <h4>Building 1
                             <?php 
-                            $building1 = "SELECT DISTINCT buildingName FROM `FMBuildings` WHERE BuildingID =1;s";
+                            // $building1 = "SELECT DISTINCT buildingName FROM `FMBuildings` WHERE BuildingID =1;s";
 
-                            $nameResult = $conn->query($building1);
-                            if(!$nameResult){
-                            echo $conn->error;
-                            } else {
-                                echo '$nameResult';
-                            }
+                            // $nameResult = $conn->query($building1);
+                            // if(!$nameResult){
+                            // echo $conn->error;
+                            // } else {
+                            //     echo '$nameResult';
+                            // }
                             ?>
                         </h4>
                         <h1>Room selection</h1>
