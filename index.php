@@ -1,26 +1,5 @@
 <!DOCTYPE html>
 <html>
-<script type="text/javascript"> 
-// //connection to db test
-// var mysql = require('mysql'); //fix
-
-// var con = mysql.createConnection({
-//   host: "eu-cdbr-west-03.cleardb.net",
-//   user: "b357da7f3209b9",
-//   password: "f1318198",
-//   database : 'heroku_58f73cf4b46766d'
-// });
-
-// con.connect(function(err) {
-//     if (err) throw err;
-//     con.query("SELECT * FROM FMusers", function (err, result, fields) {
-//       if (err) throw err;
-//       var resultLo = result;
-//       console.log(resultLo);
-//     });
-//   });
-
-</script>
 <!-- insert all preloaded PHP scripts here to autoload all data before rendering page contents, manipulated page content scritps go on bottom -->
 <?php
 // finds logged data entry that can populate table on down the page
@@ -48,7 +27,7 @@ if(!$resultLog){
     <link rel="stylesheet" href="css/style.css" type="text/css">
 
 
- <!-- Queens logo fix -->
+ <!-- Queens logo -->
 	<!-- ****** faviconit.com favicons ****** -->
 	<link rel="shortcut icon" href="imh/favicon.ico">
 	<link rel="icon" sizes="16x16 32x32 64x64" href="img/faviconit/favicon.ico">
@@ -79,39 +58,6 @@ if(!$resultLog){
     <!-- <div id="preloader">
         <div class="loader"></div>
     </div> -->
-
-    <!-- Navigation Bar Start -->
-    <!-- <header class="header-section">
-        <div class="container">
-            <div class="logo">
-                <a href="/index.php">
-                    <img src="img/logo2.png" alt="">
-                </a>
-            </div>
-            <div class="nav-menu">
-                <nav class="mainmenu mobile-menu">
-                    <ul>
-                        <li class="active"><a href="./index.php">Home</a></li>
-                        <li><a href="./about.php">About</a></li>
-                        <li><a href="#">Workouts</a>
-                            <ul class="dropdown">
-                                <li><a href="./calisthenics.php">Calisthenics</a></li>
-                                <li><a href="./crossfit.php">Crossfit</a></li>
-                                <li><a href="./bodybuilding.php">BodyBuilding</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="trainer.php">Trainer</a></li>
-                        <li><a href="client.php">Client</a></li>
-                        <li><a href="./Admin/login.php">Login</a></li>
-                    </ul>
-                </nav>
-          
-            </div>
-            <div id="mobile-menu-wrap"></div>
-        </div>
-    </header> -->
-    <!-- Nav Bar End -->
-
 
 <!-- <div class="site-wrapper">
   <div class="site-wrapper-inner">
@@ -215,39 +161,7 @@ if(!$resultLog){
             <!-- form for weight plan end-->
         <div>
     </div>
-    <!-- Hero/carousel Section Begin -->
-    <!-- <section class="hero-section">
-        <div class="hero-items owl-carousel">
-            <div class="single-hero-item set-bg" data-setbg="#">
-                <div class="container">
-                    <div class="hero-text">
-                        <h4>Body Building Coaching</h4>
-                        <h1>Leave your Ego</h1>
-                        <a href="./Admin/login.php" class="primary-btn">Login</a>
-                    </div>
-                </div>
-            </div>
-            <div class="single-hero-item set-bg" data-setbg="#">
-                <div class="container">
-                    <div class="hero-text">
-                        <h4>Crossfit beginner?</h4>
-                        <h1>Let's start with the fundamentals</h1>
-                        <a href="./Admin/login.php" class="primary-btn">Login</a>
-                    </div>
-                </div>
-            </div>
-            <div class="single-hero-item set-bg" data-setbg="#">
-                <div class="container">
-                    <div class="hero-text">
-                        <h4>Calisthenics Wannabe?</h4>
-                        <h1>Let's get those ring Muscle Ups!</h1>
-                        <a href="./Admin/login.php" class="primary-btn">Login</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-    <!-- Hero Section End -->
+
 
 
     <!-- Footer Section Begin -->

@@ -108,18 +108,18 @@ if(!$resultLog){
                                     <select name="RoomBuilding1">
 
                                     <?php
-                                    $userlist = "SELECT DISTINCT user FROM GymafiUsers";
+                                    // $userlist = "SELECT DISTINCT user FROM GymafiUsers";
 
-                                    $userlistResult = $conn->query($userlist);
-                                    if(!$userlistResult){
-                                    echo $conn->error;
-                                    }
+                                    // $userlistResult = $conn->query($userlist);
+                                    // if(!$userlistResult){
+                                    // echo $conn->error;
+                                    // }
                                     
-                                    while ($row3 = $userlistResult->fetch_assoc()){
-                                    //finds row from user table
-                                    $usernames = $row3['user'];
-                                    echo "<option value='$usernames'>$usernames</option>";
-                                    }
+                                    // while ($row3 = $userlistResult->fetch_assoc()){
+                                    // //finds row from user table
+                                    // $usernames = $row3['user'];
+                                    // echo "<option value='$usernames'>$usernames</option>";
+                                    // }
                                     ?>
 
                                     </select>
@@ -137,21 +137,13 @@ if(!$resultLog){
                     </div>
                 </div>
             </div>
+            <!-- start of building 2 data -->
             <div class="single-hero-item set-bg" data-setbg="#">
                 <div class="container">
                     <div class="hero-text">
                         <h4>Building 2</h4>
                         <h1>Room selection</h1>
                         <a href="./Admin/login.php" class="primary-btn">Download logging</a>
-                    </div>
-                </div>
-            </div>
-            <div class="single-hero-item set-bg" data-setbg="#">
-                <div class="container">
-                    <div class="hero-text">
-                        <h4>Building 3</h4>
-                        <h1>Room selection</h1>
-                        <a href="./Admin/login.php" class="primary-btn">Downlaod Logging</a>
                     </div>
                 </div>
             </div>
