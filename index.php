@@ -155,7 +155,8 @@ if(!$resultLog){
                                             $room =$conn->real_escape_string($_POST['RoomBuilding1']);
                                             $dateOriginal =$conn->real_escape_string($_POST['date']);
                                             echo $dateOriginal;
-                                            $newDate = date("Y-m-d", strtotime($dateOriginal));
+                                            $replaceddate = str_replace("/", "-", $dateOriginal);
+                                            $newDate = date("Y-m-d", strtotime($replaceddate));
                                             echo $newDate
                                             //db entry
                                             $selectDate = "SELECT * FROM FMusers WHERE RoomID = 1 
