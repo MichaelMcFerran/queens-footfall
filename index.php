@@ -95,8 +95,8 @@ if(!$resultLog){
                             if(!$nameResult){
                             echo $conn->error;
                             } else {
-                                 echo $nameResult;
-                                //echo "yo";S
+                                 //echo $nameResult;
+                                echo "yo";
                             }
                             ?>
                         </h4>
@@ -107,18 +107,18 @@ if(!$resultLog){
                                     <select name="RoomBuilding1">
 
                                     <?php
-                                    // $userlist = "SELECT DISTINCT user FROM GymafiUsers";
+                                    $roomlist = "SELECT roomName FROM FMRooms WHERE buildingName = 'Computer Science Building'";
 
-                                    // $userlistResult = $conn->query($userlist);
-                                    // if(!$userlistResult){
-                                    // echo $conn->error;
-                                    // }
+                                    $roomResult = $conn->query($roomlist);
+                                    if(!$roomResult){
+                                    echo $conn->error;
+                                    }
                                     
-                                    // while ($row3 = $userlistResult->fetch_assoc()){
-                                    // //finds row from user table
-                                    // $usernames = $row3['user'];
-                                    // echo "<option value='$usernames'>$usernames</option>";
-                                    // }
+                                    while ($row = $roomResult->fetch_assoc()){
+                                    //finds row from table
+                                    $rooms = $row['roomName'];
+                                    echo "<option value='$rooms'>$rooms</option>";
+                                    }
                                     ?>
 
                                     </select>
