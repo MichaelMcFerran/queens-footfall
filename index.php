@@ -87,7 +87,7 @@ if(!$resultLog){
             <div class="single-hero-item set-bg" data-setbg="#">
                 <div class="container">
                     <div class="hero-text">
-                        <h4>Building 1
+                        <h4>
                             <?php 
                             $building1 = "SELECT DISTINCT buildingName FROM FMBuildings WHERE BuildingID = 1";
 
@@ -95,8 +95,11 @@ if(!$resultLog){
                             if(!$nameResult){
                             echo $conn->error;
                             } else {
-                                 //echo $nameResult;
-                                echo "Computer Science Building";
+                                while ($row = $nameResult->fetch_assoc()){
+                                    //finds row from table
+                                    $name = $row['buildingName'];
+                                    echo "$name";
+                                    }
                             }
                             ?>
                         </h4>
