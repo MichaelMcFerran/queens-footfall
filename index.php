@@ -89,7 +89,7 @@ if(!$resultLog){
                     <div class="hero-text">
                         <h4>Building 1
                             <?php 
-                            $building1 = "SELECT DISTINCT `buildingName` FROM `FMBuildings` WHERE `BuildingID` = 1";
+                            $building1 = "SELECT DISTINCT buildingName FROM FMBuildings WHERE BuildingID = 1";
 
                             $nameResult = $conn->query($building1);
                             if(!$nameResult){
