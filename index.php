@@ -97,6 +97,7 @@ if(!$resultLog){
                             } else {
                                  //echo $nameResult;
                                 echo "yo";
+                                <console class="log"> "Passing in name '$nameResult'"</console>
                             }
                             ?>
                         </h4>
