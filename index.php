@@ -131,9 +131,10 @@ if(!$resultLog){
                                 <div class="col-lg-4">
                                     <button type="submitDataB1" id="submitB1Btn" name="postB1">Show Data</button>
                                 </div>
+                            </div>                     
                         </form>
-                            </div>
-                            <div class="row">
+                            
+                        <div class="row">
                             <div class="col-lg-12">
                                 <div class="section-title">
                                 </div>
@@ -153,7 +154,9 @@ if(!$resultLog){
                                             //added for security against SQL injections
                                             $room =$conn->real_escape_string($_POST['RoomBuilding1']);
                                             $dateOriginal =$conn->real_escape_string($_POST['date']);
+                                            echo $dateOriginal;
                                             $newDate = date("Y-m-d", strtotime($dateOriginal));
+                                            echo $newDate
                                             //db entry
                                             $selectDate = "SELECT * FROM FMusers WHERE RoomID = 1 
                                             AND BuildingID = 1 AND `Time` BETWEEN '$newDate 00:00:00' AND '$newdate 23:59:59' ORDER BY `Time` DESC
@@ -184,7 +187,7 @@ if(!$resultLog){
                                     </tbody>
                                 </table>
                             </div>
-                            </div>
+                        </div>
                             <!-- link to node.js live monitoring and explain -->
                         <a href="" class="primary-btn">Download Logging</a>
                     </div>
