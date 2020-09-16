@@ -84,13 +84,12 @@ if(!$resultLog){
     <!-- modular as can add sections for each required building -->
     <section class="hero-section">
         <div class="hero-items owl-carousel">
-            <div class="single-hero-item set-bg" data-setbg="#">
+            <div class="single-hero-item set-bg" data-setbg="img/CSBQueens.jpeg">
                 <div class="container">
                     <div class="hero-text">
                         <h4>
                             <?php 
                             $building1 = "SELECT DISTINCT buildingName FROM FMBuildings WHERE BuildingID = 1";
-
                             $nameResult = $conn->query($building1);
                             if(!$nameResult){
                             echo $conn->error;
@@ -103,15 +102,16 @@ if(!$resultLog){
                             }
                             ?>
                         </h4>
-                        <h1>Room selection</h1>
+                        <h1>Room Selection</h1>
+                        <h4>Leave date blank for most recent logging data</h4>
                         <form action="index.php" method='POST' enctype="multipart/form-data">
                             <div class="row">
                                 <div class="col-lg-4">
                                     <select name="RoomBuilding1">
 
                                     <?php
-                                    // $roomlist = "SELECT roomName FROM FMRooms WHERE buildingName = '$nameResult'";
-                                    $roomlist = "SELECT roomName FROM FMRooms WHERE buildingName = 'Computer Science Building'";
+                                    $roomlist = "SELECT roomName FROM FMRooms WHERE buildingName = '$name'";
+                                    //$roomlist = "SELECT roomName FROM FMRooms WHERE buildingName = 'Computer Science Building'";
                                     $roomResult = $conn->query($roomlist);
                                     if(!$roomResult){
                                     echo $conn->error;
@@ -127,13 +127,56 @@ if(!$resultLog){
                                     </select>
                                 </div>
                                 <div class="col-lg-4">
-                                    <!-- display table in here? -->
+                                    
                                     <input type="date" title="start date" name="startdateP">
                                 </div>
                                 <div class="col-lg-4">
                                     <button type="submitDownloadR1B1" id="submitDownloadR1B1Btn" name="postDownloadR1B1">Download Logging</button>
                                 </div>
 
+                            </div>
+                            <div class="row">
+                            <div class="col-lg-12">
+                                <div class="section-title">
+                                    <h2>Recent Footfall</h2>
+
+                                </div>
+                                     <!-- table of footfall -->
+                                     <table class="table table-hover table-dark">
+                                    <thead>
+                                        <tr >
+                                        <th width="50%">Concurrent Footfall</th>
+                                        <th width="50%">Timestamp</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- gets progress from DB table, then displays -->
+                                        <?php
+                                        // $room1 = "SELECT DISTINCT buildingName FROM FMBuildings WHERE roomID = 1";
+                                        // $nameResult = $conn->query($building1);
+                                        // if(!$nameResult){
+                                        //     echo $conn->error;
+                                        // } else {
+                                        //    //must be name of result to check dB data on top, fetchs data
+                                        //     while($row=$resultLog->fetch_assoc()){
+                                                
+                                        //         //var names = row of data with explicit dB row name used
+                                        //         $currentF =$row['CurrentFootfall']; 
+                                        //         $Times =$row['Time'];       
+                                        //     //now echo to display vars with fetched data from dB
+                                        //       echo "
+                                              
+                                        //       <tr>
+                                        //       <td>$currentF</td>
+                                        //       <td>$Times</td>
+                                        //       </tr>";
+                                        //     }
+                                        // }
+                                        ?>
+
+                                    </tbody>
+                                </table>
+                            </div>
                             </div>
                         </form>
                         <a href="" class="primary-btn">Download Logging</a>
@@ -169,19 +212,15 @@ if(!$resultLog){
 <div class="container-fluid">
         <div class="row">
                  <!-- Table of logging info start-->
-                 <div class="col-lg-6">
+                 <div class="col-lg-12">
                     <div class="footer-form set-bg" data-setbg="">
                         <div class="row">
-                            <div class="col-lg-10">
+                            <div class="col-lg-12">
                                 <div class="section-title">
-                                    <h2>Active Footfall</h2>
+                                    <h2>Recent Footfall</h2>
 
                                 </div>
-                                    <!-- "<script> resultLo </script>"; -->
-                                       <!-- //added for testing -->
-                                       <!-- <form action="/" method="post">
-                                      </form>  -->
-                                     <!-- table of clients fatLoss Progress -->
+                                     <!-- table of footfall -->
                                      <table class="table table-hover table-dark">
                                     <thead>
                                         <tr >
