@@ -156,15 +156,15 @@ if(!$resultLog){
                                             $newDate = date("Y-m-d", strtotime($dateOriginal));
                                             //db entry
                                             $selectDate = "SELECT * FROM FMusers WHERE RoomID = 1 
-                                            AND BuildingID = 1 AND `Time` BETWEEN '2020-09-13 00:00:00' AND '2020-09-13 23:59:59' ORDER BY `Time` DESC
-                                            LIMIT 1";
+                                            AND BuildingID = 1 AND `Time` BETWEEN '$newDate 00:00:00' AND '$newdate 23:59:59' ORDER BY `Time` DESC
+                                            LIMIT 2";
                                             //db query
                                             $dateResult = $conn->query($selectDate);
                                             if(!$dateResult){
                                                 echo $conn->error;
                                             } else {
                                             //must be name of result to check dB data on top, fetchs data
-                                                while($row2=$resultLog->fetch_assoc()){
+                                                while($row2=$dateResult->fetch_assoc()){
                                                     
                                                     //var names = row of data with explicit dB row name used
                                                     $currentF =$row2['CurrentFootfall']; 
