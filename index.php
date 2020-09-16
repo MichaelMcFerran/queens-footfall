@@ -107,8 +107,8 @@ if(!$resultLog){
                                     <select name="RoomBuilding1">
 
                                     <?php
-                                    $roomlist = "SELECT roomName FROM FMRooms WHERE buildingName = '$nameResult'";
-
+                                    // $roomlist = "SELECT roomName FROM FMRooms WHERE buildingName = '$nameResult'";
+                                    $roomlist = "SELECT roomName FROM FMRooms WHERE buildingName = 'Computer Science Building'";
                                     $roomResult = $conn->query($roomlist);
                                     if(!$roomResult){
                                     echo $conn->error;
@@ -128,7 +128,7 @@ if(!$resultLog){
                                 </div>
                                 <div class="col-lg-12">
                                     <!-- display table in here? -->
-                                    <input type="date" title="start date" name="startdateP">
+                                    <!-- <input type="date" title="start date" name="startdateP"> -->
                                 </div>
                             </div>
                         </form>
