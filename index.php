@@ -189,7 +189,7 @@ if(!$resultLog){
                                     </thead>
                                     <tbody>
                                         <!-- gets progress from DB table, then displays -->
-                                        <!-- <?php
+                                        <?php
                                            //must be name of result to check dB data on top, fetchs data
                                             while($row=$resultLog->fetch_assoc()){
                                                 
@@ -208,7 +208,7 @@ if(!$resultLog){
                                               <td>$Times</td>
                                               </tr>";
                                             }
-                                        ?> -->
+                                        ?>
 
                                     </tbody>
                                 </table>
