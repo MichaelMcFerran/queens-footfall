@@ -106,7 +106,7 @@ if(!$resultLog){
                         <h1>Room selection</h1>
                         <form action="index.php" method='POST' enctype="multipart/form-data">
                             <div class="row">
-                                <div class="col-lg-6">
+                                <div class="col-lg-4">
                                     <select name="RoomBuilding1">
 
                                     <?php
@@ -126,13 +126,14 @@ if(!$resultLog){
 
                                     </select>
                                 </div>
-                                <div class="col-lg-6">
+                                <div class="col-lg-4">
+                                    <!-- display table in here? -->
+                                    <input type="date" title="start date" name="startdateP">
+                                </div>
+                                <div class="col-lg-4">
                                     <button type="submitDownloadR1B1" id="submitDownloadR1B1Btn" name="postDownloadR1B1">Download Logging</button>
                                 </div>
-                                <div class="col-lg-12">
-                                    <!-- display table in here? -->
-                                    <!-- <input type="date" title="start date" name="startdateP"> -->
-                                </div>
+
                             </div>
                         </form>
                         <a href="" class="primary-btn">Download Logging</a>
