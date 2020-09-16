@@ -86,10 +86,11 @@ if(!$resultLog){
         <div class="hero-items owl-carousel">
             <div class="single-hero-item set-bg" data-setbg="img/CSBQueens.jpg">
                 <div class="container">
-                    <div class="hero-text">
+                    <div class="hero-text"> 
                         <h4>
                             <?php 
-                            $building1 = "SELECT DISTINCT buildingName FROM FMBuildings WHERE BuildingID = 1";
+                            $buildingId = 1; //need to find out how to increment per carousel slide
+                            $building1 = "SELECT DISTINCT buildingName FROM FMBuildings WHERE BuildingID = '$buildingId'";
                             $nameResult = $conn->query($building1);
                             if(!$nameResult){
                             echo $conn->error;
