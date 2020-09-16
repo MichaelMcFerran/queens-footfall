@@ -159,7 +159,7 @@ if(!$resultLog){
                                             $newDate = date("Y-m-d", strtotime($replaceddate));
                                             //echo $newDate
                                             //db entry
-                                            $selectDate = "SELECT * FROM FMusers WHERE RoomID = 1 AND BuildingID = 1 AND `Time` BETWEEN '$newDate 00:00:00' AND '$newdate 23:59:59' ORDER BY `Time` DESC LIMIT 2";
+                                            $selectDate = "SELECT * FROM FMusers WHERE RoomID = 1 AND BuildingID = 1 AND `Time` BETWEEN '$newDate 00:00:00' AND '$newDate 23:59:59' ORDER BY `Time` DESC LIMIT 2";
                                             //db query
                                             $dateResult = $conn->query($selectDate);
                                             if(!$dateResult){
@@ -187,8 +187,12 @@ if(!$resultLog){
                                 </table>
                             </div>
                         </div>
-                            <!-- link to node.js live monitoring and explain -->
-                        <a href="" class="primary-btn">Download Logging</a>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <!-- link to node.js live monitoring and explain -->
+                                <a href="" class="primary-btn">Download Logging</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
