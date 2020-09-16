@@ -154,10 +154,10 @@ if(!$resultLog){
                                             //added for security against SQL injections
                                             $room =$conn->real_escape_string($_POST['RoomBuilding1']);
                                             $dateOriginal =$conn->real_escape_string($_POST['date']);
-                                            echo $dateOriginal;
+                                            //echo $dateOriginal;
                                             $replaceddate = str_replace("/", "-", $dateOriginal);
                                             $newDate = date("Y-m-d", strtotime($replaceddate));
-                                            echo $newDate
+                                            //echo $newDate
                                             //db entry
                                             $selectDate = "SELECT * FROM FMusers WHERE RoomID = 1 
                                             AND BuildingID = 1 AND `Time` BETWEEN '$newDate 00:00:00' AND '$newdate 23:59:59' ORDER BY `Time` DESC
