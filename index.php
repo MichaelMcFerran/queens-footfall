@@ -158,18 +158,18 @@ if(!$resultLog){
                                             $newDate = date("Y-m-d", strtotime($replaceddate));
 
                                             //automatically getting roomID based on selection made, could auto do building but number must be auto gen from moment new carousel created
-                                            $roomID = "SELECT DISTINCT roomID FROM `FMRooms` WHERE roomName = '$room'" ;
-                                            $roomIdResult = $conn->query($roomID);
-                                            if(!$roomIdResult){
-                                                echo $conn->error;
-                                             } else {
-                                                    while($row4=$roomIdResult->fetch_assoc()){
+                                            // $roomID = "SELECT DISTINCT roomID FROM `FMRooms` WHERE roomName = '$room'" ;
+                                            // $roomIdResult = $conn->query($roomID);
+                                            // if(!$roomIdResult){
+                                            //     echo $conn->error;
+                                            //  } else {
+                                            //         while($row4=$roomIdResult->fetch_assoc()){
                                                     
-                                                        //var names = row of data with explicit dB row name used
-                                                        $currentroomId =$row4['roomID']; 
-                                                }
+                                            //             //var names = row of data with explicit dB row name used
+                                            //             $currentroomId =$row4['roomID']; 
+                                            //     }
                                             //db entry
-                                            $selectDate = "SELECT * FROM FMusers WHERE RoomID = '$currentroomId' AND BuildingID = 1 AND `Time` BETWEEN '$newDate 00:00:00' AND '$newDate 23:59:59' ORDER BY `Time` DESC LIMIT 4";
+                                            $selectDate = "SELECT * FROM FMusers WHERE RoomID = 1 AND BuildingID = 1 AND `Time` BETWEEN '$newDate 00:00:00' AND '$newDate 23:59:59' ORDER BY `Time` DESC LIMIT 4";
                                             //db query
                                             $dateResult = $conn->query($selectDate);
                                             if(!$dateResult){
