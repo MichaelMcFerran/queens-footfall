@@ -107,7 +107,7 @@ if(!$resultLog){
                                     <select name="RoomBuilding1">
 
                                     <?php
-                                    $roomlist = "SELECT roomName FROM FMRooms WHERE buildingName = 'Computer Science Building'";
+                                    $roomlist = "SELECT roomName FROM FMRooms WHERE buildingName = '$nameResult'";
 
                                     $roomResult = $conn->query($roomlist);
                                     if(!$roomResult){
