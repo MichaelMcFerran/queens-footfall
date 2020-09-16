@@ -152,7 +152,8 @@ if(!$resultLog){
                                             //add variables for all posted data
                                             //added for security against SQL injections
                                             $room =$conn->real_escape_string($_POST['RoomBuilding1']);
-                                            $date =$conn->real_escape_string($_POST['date']);
+                                            $dateOriginal =$conn->real_escape_string($_POST['date']);
+                                            $newDate = date("Y-m-d", strtotime($dateOriginal));
                                             //db entry
                                             $selectDate = "SELECT * FROM FMusers WHERE RoomID = 1 
                                             AND BuildingID = 1 AND `Time` BETWEEN '2020-09-13 00:00:00' AND '2020-09-13 23:59:59' ORDER BY `Time` DESC
