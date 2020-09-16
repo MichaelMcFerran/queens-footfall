@@ -157,7 +157,7 @@ if(!$resultLog){
                                             //db entry
                                             $selectDate = "SELECT * FROM FMusers WHERE RoomID = 1 
                                             AND BuildingID = 1 AND `Time` BETWEEN '2020-09-13 00:00:00' AND '2020-09-13 23:59:59' ORDER BY `Time` DESC
-                                            LIMIT 3";
+                                            LIMIT 1";
                                             //db query
                                             $dateResult = $conn->query($selectDate);
                                             if(!$dateResult){
