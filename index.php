@@ -80,6 +80,88 @@ if(!$resultLog){
   </div>
 </div> -->
 
+<!-- Hero/carousel Section Begin -->
+    <!-- modular as can add sections for each required building -->
+    <section class="hero-section">
+        <div class="hero-items owl-carousel">
+            <div class="single-hero-item set-bg" data-setbg="#">
+                <div class="container">
+                    <div class="hero-text">
+                        <h4>Building 1
+                            <?php 
+                            $building1 = "SELECT DISTINCT buildingName FROM `FMBuildings` WHERE BuildingID =1";
+
+                            $nameResult = $conn->query($building1);
+                            if(!$nameResult){
+                            echo $conn->error;
+                            } else {
+                                // echo $nameResult;
+                                echo "yo";
+                            }
+                            ?>
+                        </h4>
+                        <h1>Room selection</h1>
+                        <form action="index.php" method='POST' enctype="multipart/form-data">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <select name="RoomBuilding1">
+
+                                    <?php
+                                    // $userlist = "SELECT DISTINCT user FROM GymafiUsers";
+
+                                    // $userlistResult = $conn->query($userlist);
+                                    // if(!$userlistResult){
+                                    // echo $conn->error;
+                                    // }
+                                    
+                                    // while ($row3 = $userlistResult->fetch_assoc()){
+                                    // //finds row from user table
+                                    // $usernames = $row3['user'];
+                                    // echo "<option value='$usernames'>$usernames</option>";
+                                    // }
+                                    ?>
+
+                                    </select>
+                                </div>
+                                <div class="col-lg-6">
+                                    <button type="submitDownloadR1B1" id="submitDownloadR1B1Btn" name="postDownloadR1B1">Download Logging</button>
+                                </div>
+                                <div class="col-lg-12">
+                                    <!-- display table in here? -->
+                                    <input type="date" title="start date" name="startdateP">
+                                </div>
+                            </div>
+                        </form>
+                        <a href="" class="primary-btn">Download Logging</a>
+                    </div>
+                </div>
+            </div>
+            <!-- start of building 2 data -->
+            <div class="single-hero-item set-bg" data-setbg="#">
+                <div class="container">
+                    <div class="hero-text">
+                    <h4>Building 2
+                            <?php 
+                            // $building2 = "SELECT DISTINCT buildingName FROM `FMBuildings` WHERE BuildingID =2";
+
+                            // $nameResult2 = $conn->query($building2);
+                            // if(!$nameResult2){
+                            // echo $conn->error;
+                            // } else {
+                            //     echo "$nameResult2";
+                            // }
+                            ?>
+                        </h4>
+                        <h1>Room selection</h1>
+                        <a href="" class="primary-btn">Download logging</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Hero Section End -->
+
+
 <div class="container-fluid">
         <div class="row">
                  <!-- Table of logging info start-->
@@ -88,7 +170,7 @@ if(!$resultLog){
                         <div class="row">
                             <div class="col-lg-10">
                                 <div class="section-title">
-                                    <h2>Current footfall</h2>
+                                    <h2>Active Footfall</h2>
 
                                 </div>
                                     <!-- "<script> resultLo </script>"; -->
@@ -107,7 +189,7 @@ if(!$resultLog){
                                     </thead>
                                     <tbody>
                                         <!-- gets progress from DB table, then displays -->
-                                        <?php
+                                        <!-- <?php
                                            //must be name of result to check dB data on top, fetchs data
                                             while($row=$resultLog->fetch_assoc()){
                                                 
@@ -126,7 +208,7 @@ if(!$resultLog){
                                               <td>$Times</td>
                                               </tr>";
                                             }
-                                        ?>
+                                        ?> -->
 
                                     </tbody>
                                 </table>
@@ -135,8 +217,8 @@ if(!$resultLog){
                     </div>
             </div>
             <!-- end of logging info -->
-            <!-- form for weight plan start-->
-            <div class="col-lg-6">
+            <!--start-->
+            <!-- <div class="col-lg-6">
                     <div class="footer-form set-bg">
                         <div class="row">
                             <div class="col-lg-10">
@@ -144,7 +226,7 @@ if(!$resultLog){
                                     <h2>Sensor Connect Test</h2>
                                     <div class="alert alert-success" role="alert">
                                         Current People : <p id ="myCount"> </p>
-                                    </div>
+                                    </div> -->
                                     <!-- <h1 class="cover-heading">PI Button state</h1>
                                         <div class="onoffswitch" style="margin:0px auto;">
                                             <div class="switch demo3">
@@ -152,13 +234,13 @@ if(!$resultLog){
                                             <label><i></i></label>
                                             </div>
                                         </div> -->
-                                </div>
+                                <!-- </div>
                             </div>
                         </div>
                     </div>
 
-            </div>
-            <!-- form for weight plan end-->
+            </div> -->
+            <!-- end -->
         <div>
     </div>
 
