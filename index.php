@@ -96,8 +96,7 @@ if(!$resultLog){
                             echo $conn->error;
                             } else {
                                  //echo $nameResult;
-                                echo "yo";
-                                <console class="log"> "Passing in name '$nameResult'"</console>
+                                echo "Computer Science Building";
                             }
                             ?>
                         </h4>
