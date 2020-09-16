@@ -100,7 +100,6 @@ if(!$resultLog){
                                 // echo $nameResult;
                                 echo "yo";
                             }
-                            echo  "hey";
                             ?>
                         </h4>
                         <h1>Room selection</h1>
