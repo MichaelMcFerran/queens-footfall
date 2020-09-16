@@ -171,7 +171,7 @@ if(!$resultLog){
                                                     }
                                                 }
                                             //db entry
-                                            $selectDate = "SELECT * FROM FMusers WHERE RoomID = '$roomIdResult' AND BuildingID = 1 AND `Time` BETWEEN '$newDate 00:00:00' AND '$newDate 23:59:59' ORDER BY `Time` DESC LIMIT 4";
+                                            $selectDate = "SELECT * FROM FMusers WHERE RoomID = '$currentroomId' AND BuildingID = 1 AND `Time` BETWEEN '$newDate 00:00:00' AND '$newDate 23:59:59' ORDER BY `Time` DESC LIMIT 4";
                                             //db query
                                             $dateResult = $conn->query($selectDate);
                                             if(!$dateResult){
@@ -370,13 +370,13 @@ if(!$resultLog){
 
 <?php
 
-//  if(isset($_POST['download'])){
-//     $roomlist = "SELECT roomName FROM FMRooms WHERE buildingName = '$name'";
-//     $roomResult = $conn->query($roomlist);
-//     if(!$roomResult){
-//     echo $conn->error;
-//     }
-//  }
+ if(isset($_POST['download'])){
+    $roomlist = "SELECT roomName FROM FMRooms WHERE buildingName = '$name'";
+    $roomResult = $conn->query($roomlist);
+    if(!$roomResult){
+    echo $conn->error;
+    }
+ }
 
 ?>
     <!-- Js Plugins -->
