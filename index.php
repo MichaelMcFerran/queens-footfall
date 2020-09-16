@@ -162,12 +162,12 @@ if(!$resultLog){
                                             $roomIdResult = $conn->query($roomID);
                                             if(!$roomIdResult){
                                                 echo $conn->error;
-                                               // else {
+                                             } else {
                                                     while($row4=$roomIdResult->fetch_assoc()){
                                                     
                                                         //var names = row of data with explicit dB row name used
                                                         $currentroomId =$row4['roomID']; 
-                                                //}
+                                                }
                                             //db entry
                                             $selectDate = "SELECT * FROM FMusers WHERE RoomID = $roomIdResult AND BuildingID = 1 AND `Time` BETWEEN '$newDate 00:00:00' AND '$newDate 23:59:59' ORDER BY `Time` DESC LIMIT 4";
                                             //db query
