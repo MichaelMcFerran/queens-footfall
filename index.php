@@ -84,7 +84,7 @@ if(!$resultLog){
     <!-- modular as can add sections for each required building -->
     <section class="hero-section">
         <div class="hero-items owl-carousel">
-            <div class="single-hero-item set-bg" data-setbg="img/CSBQueens.jpeg">
+            <div class="single-hero-item set-bg" data-setbg="img/CSBQueens.jpg">
                 <div class="container">
                     <div class="hero-text">
                         <h4>
@@ -154,12 +154,16 @@ if(!$resultLog){
                                             //added for security against SQL injections
                                             $room =$conn->real_escape_string($_POST['RoomBuilding1']);
                                             $dateOriginal =$conn->real_escape_string($_POST['date']);
-                                            //echo $dateOriginal;
                                             $replaceddate = str_replace("/", "-", $dateOriginal);
                                             $newDate = date("Y-m-d", strtotime($replaceddate));
-                                            //echo $newDate
+
+                                            //automatically getting roomID
+                                            $roomID = "SELECT DISTINCT roomID FROM `FMRooms` WHERE roomName = '$room'" ;
+                                            $roomIdResult = $conn->query($roomID);
+                                            if(!$roomIdResult){
+                                                echo $conn->error;
                                             //db entry
-                                            $selectDate = "SELECT * FROM FMusers WHERE RoomID = 1 AND BuildingID = 1 AND `Time` BETWEEN '$newDate 00:00:00' AND '$newDate 23:59:59' ORDER BY `Time` DESC LIMIT 2";
+                                            $selectDate = "SELECT * FROM FMusers WHERE RoomID = $roomIdResult AND BuildingID = 1 AND `Time` BETWEEN '$newDate 00:00:00' AND '$newDate 23:59:59' ORDER BY `Time` DESC LIMIT 4";
                                             //db query
                                             $dateResult = $conn->query($selectDate);
                                             if(!$dateResult){
@@ -188,10 +192,17 @@ if(!$resultLog){
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-lg-12">
-                                <!-- link to node.js live monitoring and explain -->
-                                <a href="" class="primary-btn">Download Logging</a>
+                            <div class="col-lg-5"> 
+                                <a href="" class="primary-btn" name ="download">Download Logging</a>
                             </div>
+                            <!-- create space -->
+                            <div class="col-lg-2">
+                            </div>
+                            <div class="col-lg-5">
+                                <!-- link to node.js live monitoring and explain -->
+                                <a href="https://queens-footfall-monitor.herokuapp.com/" class="primary-btn">live Data Viewer</a>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -351,26 +362,13 @@ if(!$resultLog){
 
 <?php
 
-// if(isset($_POST['registerInterest'])){
-
-// //send email to admin from interested person
-//                 $Name = $_POST['name'];
-//                 $email_user = $_POST['email'];
-//                 $subject = $_POST['subject'];
-//                 $message = $_POST['body'];
-
-//                 // //admin details, only one admin but can be expanded
-//                  $adminemail = "mmcferran628@qub.ac.uk";
-//                  //$adminmessage = "Test";
-//                  $adminmessage = "$Name has sent you a message. Contact on $email_user - $message";
-               
-
-//                  mail($adminemail, $subject, $adminmessage);
-
-
-//                 //may not be needed
-//                 session_destroy(); 
-//}
+ if(isset($_POST['download'])){
+    $roomlist = "SELECT roomName FROM FMRooms WHERE buildingName = '$name'";
+    $roomResult = $conn->query($roomlist);
+    if(!$roomResult){
+    echo $conn->error;
+    }
+ }
 
 ?>
     <!-- Js Plugins -->
