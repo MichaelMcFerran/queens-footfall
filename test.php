@@ -96,7 +96,7 @@ if(!$resultLog){
                             $nameResult = $conn->query($building1);
                             if(!$nameResult){
                             echo $conn->error;
-                            } else {""
+                            } else {
                                 echo '$nameResult';
                             }
                             ?>
@@ -310,12 +310,12 @@ if(!$resultLog){
 
 ?> -->
     <!-- Js Plugins -->
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.slicknav.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
+    <script src="/js/jquery-3.3.1.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.slicknav.js"></script>
+    <script src="/js/owl.carousel.min.js"></script>
     <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js"></script> -->
-    <script src="js/main.js"></script>
+    <script src="/js/main.js"></script>
 
     <script src="socket.io/socket.io.js"></script>
     <!-- script for conencting to Pi  -->
