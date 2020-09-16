@@ -158,11 +158,12 @@ if(!$resultLog){
                                             $newDate = date("Y-m-d", strtotime($replaceddate));
 
                                             //automatically getting roomID based on selection made, could auto do building but number must be auto gen from moment new carousel created
-                                            // $roomID = "SELECT DISTINCT roomID FROM `FMRooms` WHERE roomName = '$room'" ;
-                                            // $roomIdResult = $conn->query($roomID);
-                                            // if(!$roomIdResult){
-                                            //     echo $conn->error;
-                                            //  } else {
+                                            $roomID = "SELECT DISTINCT roomID FROM `FMRooms` WHERE roomName = '$room'" ;
+                                            $roomIdResult = $conn->query($roomID);
+                                            if(!$roomIdResult){
+                                                echo $conn->error;
+                                             } 
+                                            //  else {
                                             //         while($row4=$roomIdResult->fetch_assoc()){
                                                     
                                             //             //var names = row of data with explicit dB row name used
