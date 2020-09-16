@@ -103,7 +103,6 @@ if(!$resultLog){
                             ?>
                         </h4>
                         <h1>Room Selection</h1>
-                        <h4>Leave date blank for most recent logging data</h4>
                         <form action="index.php" method='POST' enctype="multipart/form-data">
                             <div class="row">
                                 <div class="col-lg-4">
@@ -111,7 +110,6 @@ if(!$resultLog){
 
                                     <?php
                                     $roomlist = "SELECT roomName FROM FMRooms WHERE buildingName = '$name'";
-                                    //$roomlist = "SELECT roomName FROM FMRooms WHERE buildingName = 'Computer Science Building'";
                                     $roomResult = $conn->query($roomlist);
                                     if(!$roomResult){
                                     echo $conn->error;
@@ -128,18 +126,16 @@ if(!$resultLog){
                                 </div>
                                 <div class="col-lg-4">
                                     
-                                    <input type="date" title="start date" name="startdateP">
+                                    <input type="date" title="start date" name="date">
                                 </div>
                                 <div class="col-lg-4">
-                                    <button type="submitDownloadR1B1" id="submitDownloadR1B1Btn" name="postDownloadR1B1">Download Logging</button>
+                                    <button type="submitDataB1" id="submitB1Btn" name="postB1">Show Data</button>
                                 </div>
-
+                        </form>
                             </div>
                             <div class="row">
                             <div class="col-lg-12">
                                 <div class="section-title">
-                                    <h2>Recent Footfall</h2>
-
                                 </div>
                                      <!-- table of footfall -->
                                      <table class="table table-hover table-dark">
@@ -152,33 +148,43 @@ if(!$resultLog){
                                     <tbody>
                                         <!-- gets progress from DB table, then displays -->
                                         <?php
-                                        // $room1 = "SELECT DISTINCT buildingName FROM FMBuildings WHERE roomID = 1";
-                                        // $nameResult = $conn->query($building1);
-                                        // if(!$nameResult){
-                                        //     echo $conn->error;
-                                        // } else {
-                                        //    //must be name of result to check dB data on top, fetchs data
-                                        //     while($row=$resultLog->fetch_assoc()){
+                                        if(isset($_POST['postB1'])){
+                                            //add variables for all posted data
+                                            //added for security against SQL injections
+                                            $room =$conn->real_escape_string($_POST['RoomBuilding1']);
+                                            $date =$conn->real_escape_string($_POST['date']);
+                                            //db entry
+                                            $selectDate = "SELECT * FROM FMusers WHERE RoomID = 1 
+                                            AND BuildingID = 1 AND `Time` BETWEEN '2020-09-13 00:00:00' AND '2020-09-13 23:59:59' ORDER BY `Time` DESC
+                                            LIMIT 3";
+                                            //db query
+                                            $dateResult = $conn->query($selectDate);
+                                            if(!$dateResult){
+                                                echo $conn->error;
+                                            } else {
+                                            //must be name of result to check dB data on top, fetchs data
+                                                while($row2=$resultLog->fetch_assoc()){
+                                                    
+                                                    //var names = row of data with explicit dB row name used
+                                                    $currentF =$row2['CurrentFootfall']; 
+                                                    $Times =$row2['Time'];       
+                                                //now echo to display vars with fetched data from dB
+                                                echo "
                                                 
-                                        //         //var names = row of data with explicit dB row name used
-                                        //         $currentF =$row['CurrentFootfall']; 
-                                        //         $Times =$row['Time'];       
-                                        //     //now echo to display vars with fetched data from dB
-                                        //       echo "
-                                              
-                                        //       <tr>
-                                        //       <td>$currentF</td>
-                                        //       <td>$Times</td>
-                                        //       </tr>";
-                                        //     }
-                                        // }
+                                                <tr>
+                                                <td>$currentF</td>
+                                                <td>$Times</td>
+                                                </tr>";
+                                                }
+                                            }
+                                        }
                                         ?>
 
                                     </tbody>
                                 </table>
                             </div>
                             </div>
-                        </form>
+                            <!-- link to node.js live monitoring and explain -->
                         <a href="" class="primary-btn">Download Logging</a>
                     </div>
                 </div>
@@ -211,11 +217,14 @@ if(!$resultLog){
 
 <div class="container-fluid">
         <div class="row">
+        <!-- create space and centre table -->
+        <div class="col-lg-4">
+        </div>
                  <!-- Table of logging info start-->
-                 <div class="col-lg-12">
+                 <div class="col-lg-4">
                     <div class="footer-form set-bg" data-setbg="">
                         <div class="row">
-                            <div class="col-lg-12">
+                            <div class="col-lg-10">
                                 <div class="section-title">
                                     <h2>Recent Footfall</h2>
 
@@ -258,8 +267,10 @@ if(!$resultLog){
                             </div>
                         </div>
                     </div>
-            </div>
-            <!-- end of logging info -->
+                </div>
+                <!-- end of logging info -->
+        <div class="col-lg-4">
+        </div>
             <!--start-->
             <!-- <div class="col-lg-6">
                     <div class="footer-form set-bg">
