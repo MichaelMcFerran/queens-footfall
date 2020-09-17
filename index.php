@@ -152,7 +152,8 @@ if(!$resultLog){
                                     <tbody>
                                         <!-- gets progress from DB table, then displays -->
                                         <?php
-                                         if(!isset($_POST['postB'])){
+                                        // used to check if post is null/empty and display values for today as default
+                                         if(empty($_POST['postB'])){
                                             //add variables for all posted data
                                             $currentdate = date("Y-m-d");
                                             //already have building ID
