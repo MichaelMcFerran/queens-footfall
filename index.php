@@ -227,36 +227,38 @@ if(!$resultLog){
                                                 </tr>";
                                                 }
                                             }
-                                        } else {
-                                                  //add variables for all posted data
-                                            $date = date("Y-m-d");
-                                            //already have building ID
+                                        } 
+                                        //doesn't work
+                                        else {
+                                            //       //add variables for all posted data
+                                            // $date = date("Y-m-d");
+                                            // //already have building ID
 
-                                            //db entry
-                                            $selectToday = "SELECT * FROM FMusers WHERE BuildingID = '$buildingId' AND `Time` BETWEEN '$date 00:00:00' AND '$date 23:59:59' ORDER BY `Time` DESC LIMIT 3";
-                                            //db query
-                                            $todayResult = $conn->query($selectToday);
-                                            if(!$todayResult){
-                                                echo $conn->error;
-                                            } else {
-                                            //must be name of result to check dB data on top, fetchs data
-                                                while($row=$dateResult->fetch_assoc()){
+                                            // //db entry
+                                            // $selectToday = "SELECT * FROM FMusers WHERE BuildingID = '$buildingId' AND `Time` BETWEEN '$date 00:00:00' AND '$date 23:59:59' ORDER BY `Time` DESC LIMIT 3";
+                                            // //db query
+                                            // $todayResult = $conn->query($selectToday);
+                                            // if(!$todayResult){
+                                            //     echo $conn->error;
+                                            // } else {
+                                            // //must be name of result to check dB data on top, fetchs data
+                                            //     while($row=$dateResult->fetch_assoc()){
                                                     
-                                                    //var names = row of data with explicit dB row name used
-                                                    $roomID = $row['RoomID'];
-                                                    $currentF =$row['CurrentFootfall']; 
-                                                    $Times =$row['Time'];   
-                                                    // change room ID to name  !  
-                                                //now echo to display vars with fetched data from dB
-                                                echo "
+                                            //         //var names = row of data with explicit dB row name used
+                                            //         $roomID = $row['RoomID'];
+                                            //         $currentF =$row['CurrentFootfall']; 
+                                            //         $Times =$row['Time'];   
+                                            //         // change room ID to name  !  
+                                            //     //now echo to display vars with fetched data from dB
+                                            //     echo "
                                                 
-                                                <tr>
-                                                <td>$room</td>
-                                                <td>$currentF</td>
-                                                <td>$Times</td>
-                                                </tr>";
-                                                }
-                                            }
+                                            //     <tr>
+                                            //     <td>$room</td>
+                                            //     <td>$currentF</td>
+                                            //     <td>$Times</td>
+                                            //     </tr>";
+                                            //     }
+                                            // }
                                         }
                                         ?>
 
