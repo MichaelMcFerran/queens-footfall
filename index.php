@@ -86,7 +86,7 @@ if(!$resultLog){
         <div class="hero-items owl-carousel">
             <!-- start of building 1 data -->
             <div class="single-hero-item set-bg" data-setbg="img/CSBQueens.jpg">
-                <!-- <div class="container"> -->
+                <div class="container">
                     <div class="hero-text"> 
                         <h4>
                             <?php 
@@ -175,7 +175,7 @@ if(!$resultLog){
                                                         }
                                                     }
                                                 //db entry
-                                                $selectToday = "SELECT * FROM FMusers WHERE RoomID = '$currentroomId' AND BuildingID = '$buildingId' AND `Time` BETWEEN '$currentdate 00:00:00' AND '$currentdate 23:59:59' ORDER BY `Time` DESC LIMIT 3";
+                                                $selectToday = "SELECT * FROM FMusers WHERE RoomID = '$currentroomId' AND BuildingID = '$buildingId' AND `Time` BETWEEN '$currentdate 00:00:00' AND '$currentdate 23:59:59' ORDER BY `Time` DESC LIMIT 2";
                                                 //db query
                                                 $todayResult = $conn->query($selectToday);
                                                 if(!$todayResult){
@@ -221,7 +221,7 @@ if(!$resultLog){
                                                     }
                                                 }
                                             //db entry
-                                            $selectDate = "SELECT * FROM FMusers WHERE RoomID = '$currentroomId' AND BuildingID = '$buildingId' AND `Time` BETWEEN '$newDate 00:00:00' AND '$newDate 23:59:59' ORDER BY `Time` DESC LIMIT 3";
+                                            $selectDate = "SELECT * FROM FMusers WHERE RoomID = '$currentroomId' AND BuildingID = '$buildingId' AND `Time` BETWEEN '$newDate 00:00:00' AND '$newDate 23:59:59' ORDER BY `Time` DESC LIMIT 2";
                                             //db query
                                             $dateResult = $conn->query($selectDate);
                                             if(!$dateResult){
@@ -264,7 +264,7 @@ if(!$resultLog){
 
                         </div>
                     </div>
-                <!-- </div> -->
+                </div>
             </div>
             <!-- end of building 1 data  -->
             <!-- start of building 2 data -->
@@ -358,7 +358,7 @@ if(!$resultLog){
                                                         }
                                                     }
                                                 //db entry
-                                                $selectToday = "SELECT * FROM FMusers WHERE RoomID = '$currentroomId' AND BuildingID = '$buildingId' AND `Time` BETWEEN '$currentdate 00:00:00' AND '$currentdate 23:59:59' ORDER BY `Time` DESC LIMIT 3";
+                                                $selectToday = "SELECT * FROM FMusers WHERE RoomID = '$currentroomId' AND BuildingID = '$buildingId' AND `Time` BETWEEN '$currentdate 00:00:00' AND '$currentdate 23:59:59' ORDER BY `Time` DESC LIMIT 2";
                                                 //db query
                                                 $todayResult = $conn->query($selectToday);
                                                 if(!$todayResult){
