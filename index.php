@@ -185,7 +185,6 @@ if(!$resultLog){
                                                     while($row5=$todayResult->fetch_assoc()){
                                                         
                                                         //var names = row of data with explicit dB row name used
-                                                        $roomID = $row5'RoomID'];
                                                         $currentF =$row5['CurrentFootfall']; 
                                                         $Times =$row5['Time'];   
                                                         // change room ID to name  !  
