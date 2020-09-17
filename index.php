@@ -175,7 +175,7 @@ if(!$resultLog){
                                                         }
                                                     }
                                                 //db entry
-                                                $selectToday = "SELECT * FROM FMusers WHERE BuildingID = '$buildingId' AND `Time` BETWEEN '$currentdate 00:00:00' AND '$currentdate 23:59:59' ORDER BY `Time` DESC LIMIT 3";
+                                                $selectToday = "SELECT * FROM FMusers WHERE RoomID = '$currentroomId' AND BuildingID = '$buildingId' AND `Time` BETWEEN '$currentdate 00:00:00' AND '$currentdate 23:59:59' ORDER BY `Time` DESC LIMIT 3";
                                                 //db query
                                                 $todayResult = $conn->query($selectToday);
                                                 if(!$todayResult){
@@ -199,6 +199,7 @@ if(!$resultLog){
                                                     }
                                                 }
                                             }
+                                            // if all room posted, if date posted, then pressing show data displays the following
                                             //add variables for all posted data
                                             //added for security against SQL injections
                                             $room =$conn->real_escape_string($_POST['RoomBuilding1']);
