@@ -84,14 +84,15 @@ if(!$resultLog){
     <!-- modular as can add sections for each required building -->
     <section class="hero-section">
         <div class="hero-items owl-carousel">
+            <!-- start of building 1 data -->
             <div class="single-hero-item set-bg" data-setbg="img/CSBQueens.jpg">
                 <div class="container">
                     <div class="hero-text"> 
                         <h4>
                             <?php 
                             $buildingId = 1; //need to find out how to increment per carousel slide
-                            $building1 = "SELECT DISTINCT buildingName FROM FMBuildings WHERE BuildingID = '$buildingId'";
-                            $nameResult = $conn->query($building1);
+                            $building = "SELECT DISTINCT buildingName FROM FMBuildings WHERE BuildingID = '$buildingId'";
+                            $nameResult = $conn->query($building);
                             if(!$nameResult){
                             echo $conn->error;
                             } else {
@@ -172,7 +173,7 @@ if(!$resultLog){
                                                     }
                                                 }
                                             //db entry
-                                            $selectDate = "SELECT * FROM FMusers WHERE RoomID = '$currentroomId' AND BuildingID = 1 AND `Time` BETWEEN '$newDate 00:00:00' AND '$newDate 23:59:59' ORDER BY `Time` DESC LIMIT 4";
+                                            $selectDate = "SELECT * FROM FMusers WHERE RoomID = '$currentroomId' AND BuildingID = '$buildingId' AND `Time` BETWEEN '$newDate 00:00:00' AND '$newDate 23:59:59' ORDER BY `Time` DESC LIMIT 4";
                                             //db query
                                             $dateResult = $conn->query($selectDate);
                                             if(!$dateResult){
@@ -216,7 +217,140 @@ if(!$resultLog){
                     </div>
                 </div>
             </div>
+            <!-- end of building 1 data  -->
             <!-- start of building 2 data -->
+            <div class="single-hero-item set-bg" data-setbg="img/SU.png">
+                <div class="container">
+                    <div class="hero-text"> 
+                        <h4>
+                            <?php 
+                            $buildingId = 2; //need to find out how to increment per carousel slide
+                            $building = "SELECT DISTINCT buildingName FROM FMBuildings WHERE BuildingID = '$buildingId'";
+                            $nameResult = $conn->query($building);
+                            if(!$nameResult){
+                            echo $conn->error;
+                            } else {
+                                while ($row = $nameResult->fetch_assoc()){
+                                    //finds row from table
+                                    $name = $row['buildingName'];
+                                    echo "$name";
+                                    }
+                            }
+                            ?>
+                        </h4>
+                        <h1>Room Selection</h1>
+                        <form action="index.php" method='POST' enctype="multipart/form-data">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <select name="RoomBuilding1">
+
+                                    <?php
+                                    $roomlist = "SELECT roomName FROM FMRooms WHERE buildingName = '$name'";
+                                    $roomResult = $conn->query($roomlist);
+                                    if(!$roomResult){
+                                    echo $conn->error;
+                                    }
+                                    
+                                    while ($row = $roomResult->fetch_assoc()){
+                                    //finds row from table
+                                    $rooms = $row['roomName'];
+                                    echo "<option value='$rooms'>$rooms</option>";
+                                    }
+                                    ?>
+
+                                    </select>
+                                </div>
+                                <div class="col-lg-4">
+                                    
+                                    <input type="date" title="start date" name="date">
+                                </div>
+                                <div class="col-lg-4">
+                                    <button type="submitDataB1" id="submitB1Btn" name="postB1">Show Data</button>
+                                </div>
+                            </div>                     
+                        </form>
+                            
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="section-title">
+                                </div>
+                                     <!-- table of footfall -->
+                                     <table class="table table-hover table-dark">
+                                    <thead>
+                                        <tr >
+                                        <th width="50%">Concurrent Footfall</th>
+                                        <th width="50%">Timestamp</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- gets progress from DB table, then displays -->
+                                        <?php
+                                        if(isset($_POST['postB1'])){
+                                            //add variables for all posted data
+                                            //added for security against SQL injections
+                                            $room =$conn->real_escape_string($_POST['RoomBuilding1']);
+                                            $dateOriginal =$conn->real_escape_string($_POST['date']);
+                                            $replaceddate = str_replace("/", "-", $dateOriginal);
+                                            $newDate = date("Y-m-d", strtotime($replaceddate));
+
+                                            //automatically getting roomID based on selection made, could auto do building but number must be auto gen from moment new carousel created
+                                            $roomID = "SELECT DISTINCT roomID FROM `FMRooms` WHERE roomName = '$room'" ;
+                                            $roomIdResult = $conn->query($roomID);
+                                            if(!$roomIdResult){
+                                                echo $conn->error;
+                                             } 
+                                             else {
+                                                    while($row4=$roomIdResult->fetch_assoc()){
+                                                    
+                                                        //var names = row of data with explicit dB row name used
+                                                        $currentroomId =$row4['roomID']; 
+                                                    }
+                                                }
+                                            //db entry
+                                            $selectDate = "SELECT * FROM FMusers WHERE RoomID = '$currentroomId' AND BuildingID = '$buildingId' AND `Time` BETWEEN '$newDate 00:00:00' AND '$newDate 23:59:59' ORDER BY `Time` DESC LIMIT 4";
+                                            //db query
+                                            $dateResult = $conn->query($selectDate);
+                                            if(!$dateResult){
+                                                echo $conn->error;
+                                            } else {
+                                            //must be name of result to check dB data on top, fetchs data
+                                                while($row2=$dateResult->fetch_assoc()){
+                                                    
+                                                    //var names = row of data with explicit dB row name used
+                                                    $currentF =$row2['CurrentFootfall']; 
+                                                    $Times =$row2['Time'];       
+                                                //now echo to display vars with fetched data from dB
+                                                echo "
+                                                
+                                                <tr>
+                                                <td>$currentF</td>
+                                                <td>$Times</td>
+                                                </tr>";
+                                                }
+                                            }
+                                        }
+                                        ?>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-5"> 
+                                <a href="" class="primary-btn" name ="download">Download Logging</a>
+                            </div>
+                            <!-- create space -->
+                            <div class="col-lg-2">
+                            </div>
+                            <div class="col-lg-5">
+                                <!-- link to node.js live monitoring and explain -->
+                                <a href="https://queens-footfall-monitor.herokuapp.com/" class="primary-btn">live Data Viewer</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="single-hero-item set-bg" data-setbg="#">
                 <div class="container">
                     <div class="hero-text">
@@ -370,13 +504,17 @@ if(!$resultLog){
     <!-- Footer Section End -->
 
 <?php
-
+//allowing users to download logging data
  if(isset($_POST['download'])){
-    $roomlist = "SELECT roomName FROM FMRooms WHERE buildingName = '$name'";
-    $roomResult = $conn->query($roomlist);
-    if(!$roomResult){
+    // $selectDownload = "SELECT * FROM FMusers WHERE RoomID = '$currentroomId' AND BuildingID = '$buildingId' AND `Time` BETWEEN '$newDate 00:00:00' AND '$newDate 23:59:59' ORDER BY `Time` DESC";
+    $selectDownload = "SELECT * FROM FMusers WHERE RoomID = '$currentroomId' AND BuildingID = '$buildingId' ORDER BY `Time` DESC";
+    $downloadResult = $conn->query($selectDownload);
+    if(!$downloadResult){
     echo $conn->error;
     }
+    while($files = $resultLog->fetch_assoc()){
+    }
+    // $files = mysqli_fetch_all($downloadResult, MYSQLI_ASSOC);
  }
 
 ?>
