@@ -253,9 +253,12 @@ if(!$resultLog){
                         </div>
                         <div class="row">
                             <div class="col-lg-5"> 
-                                <!-- <button type="button" class="primary-btn" name="download">Download Logging</button> -->
+                                <!-- form used to trigger post when button pressed -->
+                                <form action="index.php" method='POST' enctype="multipart/form-data">
+                                <button type="button" class="primary-btn" name="download">Download Logging</button>
                                 <!-- <button class="primary-btn" name="download">Download Logging</button> -->
-                                <button type="submitDownload" name="download">Download Logging</button>
+                                <!-- <button type="submitDownload" name="download">Download Logging</button> -->
+                                    </form>
                             </div>
                             <!-- create space -->
                             <div class="col-lg-2">
