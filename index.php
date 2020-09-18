@@ -619,7 +619,7 @@ if(!$resultLog){
                                     <div class="row">
                                         <div class="col-lg-5"> 
                                             <!-- <a href="" class="primary-btn" name ="download">Download Logging</a> -->
-                                            <button type="submitDataB" class="primary-btn" name="download">Download Logging</button>
+                                            <button type="submitDataB" class="primary-btn" name="downloadB2">Download Logging</button>
 
                                         </div>
                                         <!-- create space -->
