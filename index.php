@@ -496,7 +496,7 @@ if(!$resultLog){
                                                 <input type="date" title="start date" name="date">
                                             </div>
                                             <div class="col-lg-4">
-                                                <button type="submitDataB" id="submitBBtn" name="postB">Show Data</button>
+                                                <button type="submitDataB" class="primary-btn" name="postB">Show Data</button>
                                             </div>
                                         </div>                     
                                     </form>
@@ -616,7 +616,9 @@ if(!$resultLog){
                                     </div>
                                     <div class="row">
                                         <div class="col-lg-5"> 
-                                            <a href="" class="primary-btn" name ="download">Download Logging</a>
+                                            <!-- <a href="" class="primary-btn" name ="download">Download Logging</a> -->
+                                            <button type="submitDataB" class="primary-btn" name="postB">Show Data</button>
+
                                         </div>
                                         <!-- create space -->
                                         <div class="col-lg-2">
