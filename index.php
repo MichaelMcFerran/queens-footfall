@@ -316,6 +316,7 @@ if(!$resultLog){
                                 </div>
                                 <div class="col-lg-4">
                                     <!-- <button type="submitDataB" class="primary-btn" name="postB">Show Data</button> -->
+                                    <!--named the same as first building, posts data for both at the same time when one button clicked  -->
                                     <button type="submitDataB" name="postB">Show Data</button>
                                 </div>
                             </div>                     
@@ -436,7 +437,7 @@ if(!$resultLog){
                         </div>
                         <div class="row">
                             <div class="col-lg-5"> 
-                                <button type="submitDataB" class="primary-btn" name="download">Download Logging</button>
+                                <button type="submitDataB" class="primary-btn" name="downloadB2">Download Logging</button>
                             </div>
                             <!-- create space -->
                             <div class="col-lg-2">
@@ -498,7 +499,8 @@ if(!$resultLog){
                                                 <input type="date" title="start date" name="date">
                                             </div>
                                             <div class="col-lg-4">
-                                                <button type="submitDataB" class="primary-btn" name="postB">Show Data</button>
+                                                <!-- if this is named same as other two, will post data for this building too when one button is posted/clicked -->
+                                                <button type="submitDataB" class="primary-btn" name="postB3">Show Data</button>
                                             </div>
                                         </div>                     
                                     </form>
@@ -619,7 +621,7 @@ if(!$resultLog){
                                     <div class="row">
                                         <div class="col-lg-5"> 
                                             <!-- <a href="" class="primary-btn" name ="download">Download Logging</a> -->
-                                            <button type="submitDataB" class="primary-btn" name="downloadB2">Download Logging</button>
+                                            <button type="submitDataB" class="primary-btn" name="downloadB3">Download Logging</button>
 
                                         </div>
                                         <!-- create space -->
