@@ -1,7 +1,7 @@
 <?php
 //db config/connection
 include('conn.php');
- if(isset($_POST['download'])){
+// if(isset($_POST['download'])){
     // $selectDownload = "SELECT * FROM FMusers WHERE RoomID = '$currentroomId' AND BuildingID = '$buildingId' AND `Time` BETWEEN '$newDate 00:00:00' AND '$newDate 23:59:59' ORDER BY `Time` DESC";
     // $selectDownload = "SELECT * FROM FMusers WHERE RoomID = '$currentroomId' AND BuildingID = '$buildingId' ORDER BY `Time` DESC"; this is specifc download, trying generic all first
     $selectDownload = "SELECT * FROM FMusers ORDER BY `Time` DESC";
@@ -39,6 +39,6 @@ include('conn.php');
     
     exit;
   
- }
+ //}
 
 ?>
