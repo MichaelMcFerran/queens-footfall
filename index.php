@@ -781,13 +781,13 @@ if(!$resultLog){
 
         //set headers for columns
         $fields = array('FootfallID','RoomID','BuildingID','CurrentFootfall','Time');
-        fputcsv($file,$fields,$delimiter);
+        fputcsv($file, $fields, $delimiter);
 
         //output rows of data, format as csv and write to file pointer
         while($row = $query->fetch_assoc()){
            // $status = ($row['status'] =='1')?'Active':'Inactive'; //ternary operatore to set dv bool value as string value active if 1 is true or inactive if false/0 
-           $lineData = array($row['FootfallID'],$row['RoomID'],$row['BuildingID'],$row['CurrentFootfall'],$row['Time'],);
-           fputcsv($file,$lineData,$delimiter);
+           $lineData = array($row['FootfallID'], $row['RoomID'], $row['BuildingID'], $row['CurrentFootfall'], $row['Time'],);
+           fputcsv($file, $lineData, $delimiter);
         }
         //move back to beginning of file
         fseek($file, 0);
@@ -799,6 +799,7 @@ if(!$resultLog){
         //output all remaining data on a file pointer
         fpassthru($file);
     }
+    exit;
 
  }
 
