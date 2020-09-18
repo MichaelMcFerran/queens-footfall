@@ -255,8 +255,8 @@ if(!$resultLog){
                             <div class="col-lg-5"> 
                                 <!-- form used to trigger post when button pressed -->
                                 <form action="index.php" method='POST' enctype="multipart/form-data">
-                                    <button type="submitDownload" class="primary-btn" name="download">Download Logging</button>
-                                    <!-- <a href="exportData.php" class="primary-btn">Download Logging</a> -->
+                                    <!-- <button type="submitDownload" class="primary-btn" name="download">Download Logging</button> -->
+                                    <a href="loggingDownload.php" class="primary-btn">Download Logging</a>
                                 </form>
                             </div>
                             <!-- create space -->
@@ -779,45 +779,45 @@ if(!$resultLog){
 
 <?php
 //allowing users to download logging data https://www.youtube.com/watch?v=Xp0pZ6OmJv0
- if(isset($_POST['download'])){
-    // $selectDownload = "SELECT * FROM FMusers WHERE RoomID = '$currentroomId' AND BuildingID = '$buildingId' AND `Time` BETWEEN '$newDate 00:00:00' AND '$newDate 23:59:59' ORDER BY `Time` DESC";
-    // $selectDownload = "SELECT * FROM FMusers WHERE RoomID = '$currentroomId' AND BuildingID = '$buildingId' ORDER BY `Time` DESC"; this is specifc download, trying generic all first
-    $selectDownload = "SELECT * FROM FMusers ORDER BY `Time` DESC";
-    $downloadResult = $conn->query($selectDownload);
-    if(!$downloadResult){
-    echo $conn->error;
-    }
-    if($downloadResult->num_rows > 0){
-        $delimiter = ",";
-        $filename = "footfallData_" . date('Y-m-d') . ".csv";
+//  if(isset($_POST['download'])){
+//     // $selectDownload = "SELECT * FROM FMusers WHERE RoomID = '$currentroomId' AND BuildingID = '$buildingId' AND `Time` BETWEEN '$newDate 00:00:00' AND '$newDate 23:59:59' ORDER BY `Time` DESC";
+//     // $selectDownload = "SELECT * FROM FMusers WHERE RoomID = '$currentroomId' AND BuildingID = '$buildingId' ORDER BY `Time` DESC"; this is specifc download, trying generic all first
+//     $selectDownload = "SELECT * FROM FMusers ORDER BY `Time` DESC";
+//     $downloadResult = $conn->query($selectDownload);
+//     if(!$downloadResult){
+//     echo $conn->error;
+//     }
+//     if($downloadResult->num_rows > 0){
+//         $delimiter = ",";
+//         $filename = "footfallData_" . date('Y-m-d') . ".csv";
 
-        //file pointer
-        $file = fopen('php://memory', 'w');
+//         //file pointer
+//         $file = fopen('php://memory', 'w');
 
-        //set headers for columns
-        $fields = array('FootfallID','RoomID','BuildingID','CurrentFootfall','Time');
-        fputcsv($file, $fields, $delimiter);
+//         //set headers for columns
+//         $fields = array('FootfallID','RoomID','BuildingID','CurrentFootfall','Time');
+//         fputcsv($file, $fields, $delimiter);
 
-        //output rows of data, format as csv and write to file pointer
-        while($row = $downloadResult->fetch_assoc()){
-           // $status = ($row['status'] =='1')?'Active':'Inactive'; //ternary operatore to set dv bool value as string value active if 1 is true or inactive if false/0 
-           $lineData = array($row['FootfallID'], $row['RoomID'], $row['BuildingID'], $row['CurrentFootfall'], $row['Time'],);
-           fputcsv($file, $lineData, $delimiter);
-        }
-        //move back to beginning of file
-        fseek($file, 0);
+//         //output rows of data, format as csv and write to file pointer
+//         while($row = $downloadResult->fetch_assoc()){
+//            // $status = ($row['status'] =='1')?'Active':'Inactive'; //ternary operatore to set dv bool value as string value active if 1 is true or inactive if false/0 
+//            $lineData = array($row['FootfallID'], $row['RoomID'], $row['BuildingID'], $row['CurrentFootfall'], $row['Time'],);
+//            fputcsv($file, $lineData, $delimiter);
+//         }
+//         //move back to beginning of file
+//         fseek($file, 0);
 
-        //set headers to download file rather than display
-        header('Content-Type: text/csv');
-        header('Content-Disposition: attachment; filename="' . $filename . '";');
+//         //set headers to download file rather than display, needs to be on it's own page to change header info!
+//         header('Content-Type: text/csv');
+//         header('Content-Disposition: attachment; filename="' . $filename . '";');
 
-        //output all remaining data on a file pointer
-        fpassthru($file);
-    }
-    // not necessary as staying on same page?
-    //exit;
+//         //output all remaining data on a file pointer
+//         fpassthru($file);
+//     }
+//     // not necessary as staying on same page?
+//     //exit;
   
- }
+//  }
 
 ?>
     <!-- Js Plugins -->
