@@ -444,7 +444,8 @@ if(!$resultLog){
                                 <!-- form used to trigger post when button pressed -->
                                 <form action="index.php" method='POST' enctype="multipart/form-data">
                                 <!-- button is named same as other buildings, so same downlaod php script carried out at bottom -->
-                                    <button type="submitDownload" class="primary-btn" name="download">Download Logging</button>
+                                    <!-- <button type="submitDownload" class="primary-btn" name="download">Download Logging</button> -->
+                                    <a href="loggingDownload.php" class="primary-btn">Download Logging</a>
                                 </form>
                             </div>
                             <!-- create space -->
@@ -631,7 +632,8 @@ if(!$resultLog){
                                             <!-- form used to trigger post when button pressed -->
                                             <form action="index.php" method='POST' enctype="multipart/form-data">
                                             <!-- button is named same as other buildings, so same downlaod php script carried out at bottom -->
-                                                <button type="submitDownload" class="primary-btn" name="download">Download Logging</button>
+                                                <!-- <button type="submitDownload" class="primary-btn" name="download">Download Logging</button> -->
+                                                <a href="loggingDownload.php" class="primary-btn">Download Logging</a>
                                             </form>
                                         </div>
                                         <!-- create space -->
