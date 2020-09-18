@@ -107,7 +107,7 @@ if(!$resultLog){
                         <h1>Room Selection</h1>
                         <form action="index.php" method='POST' enctype="multipart/form-data">
                             <div class="row">
-                                <div class="col-lg-3">
+                                <div class="col-lg-4">
                                     <select name="RoomBuilding1">
 
                                     <?php
@@ -126,12 +126,13 @@ if(!$resultLog){
 
                                     </select>
                                 </div>
-                                <div class="col-lg-3">
+                                <div class="col-lg-4">
                                     
                                     <input type="date" title="start date" name="date">
                                 </div>
-                                <div class="col-lg-6">
-                                    <button type="submitDataB1" class="primary-btn" name="postB">Show Data</button>
+                                <div class="col-lg-4">
+                                    <!-- <button type="submitDataB1" class="primary-btn" name="postB">Show Data</button> -->
+                                    <button type="submitDataB1" name="postB">Show Data</button>
                                 </div>
                             </div>                     
                         </form>
@@ -728,8 +729,7 @@ if(!$resultLog){
             <div class="row">
                 <div class="col-lg-6">
                     <div class="map-location">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2312.852038465756!2d-5.974364484115035!3d54.571359380254044!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x486108a0080eec35%3A0x9027d28ca7db7e7d!2s99A%20Stockmans%20Ln%2C%20Belfast%20BT9%207JD!5e0!3m2!1sen!2suk!4v1586364860999!5m2!1sen!2suk" style="border:0;" allowfullscreen=""></iframe>
-
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2312.11136348084!2d-5.936243348119055!3d54.58441178885766!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x486108ea57227da7%3A0x3cecfa2a15d642e1!2sQueen&#39;s%20University%20Belfast!5e0!3m2!1sen!2suk!4v1600390527886!5m2!1sen!2suk" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -796,7 +796,7 @@ if(!$resultLog){
 
         //set headers to download file rather than display
         header('Content-Type: text/csv');
-        header('Content-Disposition: attachment; filename="' . $filename . '"');
+        header('Content-Disposition: attachment; filename="' . $filename . '";');
 
         //output all remaining data on a file pointer
         fpassthru($file);
