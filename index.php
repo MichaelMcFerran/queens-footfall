@@ -254,7 +254,8 @@ if(!$resultLog){
                         <div class="row">
                             <div class="col-lg-5"> 
                                 <!-- <button type="button" class="primary-btn" name="download">Download Logging</button> -->
-                                <button class="primary-btn" name="download">Download Logging</button>
+                                <!-- <button class="primary-btn" name="download">Download Logging</button> -->
+                                <button type="submitDownload" name="download">Download Logging</button>
                             </div>
                             <!-- create space -->
                             <div class="col-lg-2">
@@ -728,7 +729,7 @@ if(!$resultLog){
 
 
     <!-- Footer Section Begin -->
-    <!-- <footer class="footer-section">
+    <footer class="footer-section">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-6">
@@ -736,7 +737,7 @@ if(!$resultLog){
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2312.11136348084!2d-5.936243348119055!3d54.58441178885766!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x486108ea57227da7%3A0x3cecfa2a15d642e1!2sQueen&#39;s%20University%20Belfast!5e0!3m2!1sen!2suk!4v1600390527886!5m2!1sen!2suk" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
                     </div>
                 </div>
-                <div class="col-lg-6">
+                <!-- <div class="col-lg-6">
                     <div class="footer-form set-bg" data-setbg="img/squat.jpg">
                         <div class="row">
                             <div class="col-lg-10">
@@ -762,10 +763,10 @@ if(!$resultLog){
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
-    </footer> -->
+    </footer>
     <!-- Footer Section End -->
 
 <?php
@@ -818,27 +819,6 @@ if(!$resultLog){
     <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js"></script> -->
     <script src="/js/main.js"></script>
 
-    <script src="socket.io/socket.io.js"></script>
-    <!-- script for conencting to Pi  -->
-    <script type="text/javascript">
-
-    // //connect to GPIO of PI
-    // var socket = io.connect('/');
-	// //jquery takes changed state of toggle on page and passes state to server
-    // // $("#myonoffswitch").change(function(){
-    // //   socket.emit("stateChanged", this.checked);
-    // // });
-    
-    // socket.on("updatecount", function (count) {
-    // 	console.log("The count is: " + count); //checks count is received
-	// //js below changes checkbox on html page dynamically as state is send from PI-server-HTML
-    // // var personCount = document.getElementById("myCount");
-    // // personCount.firstChild.nodeValue = count;
-    // document.getElementById("myCount").innerHTML = count;
-    
-    // });
-	
-    </script>
 
     
 </body>
