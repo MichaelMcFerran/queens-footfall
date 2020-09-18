@@ -257,7 +257,7 @@ if(!$resultLog){
                                 <form action="index.php" method='POST' enctype="multipart/form-data">
                                     <!-- <button type="button" class="primary-btn" name="download">Download Logging</button> -->
                                     <!-- <button class="primary-btn" name="download">Download Logging</button> -->
-                                    <button type="submitDownload" name="download">Download Logging</button>
+                                    <button type="submitDownload" class="primary-btn" name="download">Download Logging</button>
                                 </form>
                             </div>
                             <!-- create space -->
