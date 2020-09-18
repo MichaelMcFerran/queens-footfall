@@ -253,7 +253,8 @@ if(!$resultLog){
                         </div>
                         <div class="row">
                             <div class="col-lg-5"> 
-                                <button type="button" class="primary-btn" name="download">Download Logging</button>
+                                <!-- <button type="button" class="primary-btn" name="download">Download Logging</button> -->
+                                <button class="primary-btn" name="download">Download Logging</button>
                             </div>
                             <!-- create space -->
                             <div class="col-lg-2">
