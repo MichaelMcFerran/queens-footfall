@@ -62,8 +62,7 @@ include('conn.php'); //changed to /
                 <div class="container">
                     <div class ="row">
                         <div class="hero-text">
-                            <h4> PHP here for building name</h4> 
-                            <h2>PHP here for room</h2>
+                            <h4> PHP here for building name and room</h4> 
                             <h1>Average footfall - PHP date. Capacity - PHP</h1>
                     </div>
                     <div class="row">
@@ -106,6 +105,12 @@ include('conn.php'); //changed to /
         <!-- end of carousel -->
     </div>
     <!-- end of section -->
+
+    <div class="row">
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+    </div>
 </body>
 
 
