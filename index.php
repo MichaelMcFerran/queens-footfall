@@ -55,30 +55,11 @@ if(!$resultLog){
 
 <body>
     <!-- Preloading screen -->
-    <!-- <div id="preloader">
+    <div id="preloader">
         <div class="loader"></div>
-    </div> -->
+    </div>
 
-<!-- <div class="site-wrapper">
-  <div class="site-wrapper-inner">
-    <div class="cover-container">
-      <div class="inner cover">
-        <h1 class="cover-heading">CSB foyer</h1> -->
-        <!-- <div class="alert alert-success" role="alert">
-            Current People : <p id ="myCount"> </p>
-          </div> -->
-          <!-- below is for front end to pi manipulation -->
-      <!-- <h1 class="cover-heading">PI Button state</h1>
-          <div class="onoffswitch" style="margin:0px auto;">
-            <div class="switch demo3">
-              <input type="checkbox" id="mybuttonGPIO">
-              <label><i></i></label>
-            </div>
-          </div> -->
-      <!-- </div> -->
-    <!-- </div>
-  </div>
-</div> -->
+
 
 <!-- Hero/carousel Section Begin -->
     <!-- modular as can add sections for each required building -->
@@ -252,17 +233,18 @@ if(!$resultLog){
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-lg-5"> 
+                            <div class="col-lg-4"> 
                                 <!-- form used to trigger post when button pressed -->
                                 <form action="index.php" method='POST' enctype="multipart/form-data">
                                     <!-- <button type="submitDownload" class="primary-btn" name="download">Download Logging</button> -->
                                     <a href="loggingDownload.php" class="primary-btn">Download Logging</a>
                                 </form>
                             </div>
-                            <!-- create space -->
-                            <div class="col-lg-2">
+                            <!-- button to view peaks based on shown data -->
+                            <div class="col-lg-4">
+                                <a href="https://queens-footfall-monitor.herokuapp.com/" class="primary-btn">live Data Viewer</a>
                             </div>
-                            <div class="col-lg-5">
+                            <div class="col-lg-4">
                                 <!-- link to node.js live monitoring and explain -->
                                 <a href="https://queens-footfall-monitor.herokuapp.com/" class="primary-btn">live Data Viewer</a>
                             </div>
@@ -655,9 +637,9 @@ if(!$resultLog){
 
 <div class="container-fluid">
         <div class="row">
-        <!-- create space and centre table -->
-        <div class="col-lg-4">
-        </div>
+            <!-- create space and centre table -->
+            <div class="col-lg-4">
+            </div>
                  <!-- Table of logging info start-->
                  <div class="col-lg-4">
                     <div class="footer-form set-bg" data-setbg="">
@@ -669,165 +651,72 @@ if(!$resultLog){
                                 </div>
                                      <!-- table of footfall -->
                                      <table class="table table-hover table-dark">
-                                    <thead>
-                                        <tr >
-                                        <th width="15%">building ID</th>
-                                        <th width="15%">Room ID</th>
-                                        <th width="30%">Concurrent Footfall</th>
-                                        <th width="30%">Timestamp</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <!-- gets progress from DB table, then displays -->
-                                        <?php
-                                           //must be name of result to check dB data on top, fetchs data
-                                            while($row=$resultLog->fetch_assoc()){
+                                        <thead>
+                                            <tr >
+                                            <th width="15%">building ID</th>
+                                            <th width="15%">Room ID</th>
+                                            <th width="30%">Concurrent Footfall</th>
+                                            <th width="30%">Timestamp</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <!-- gets progress from DB table, then displays -->
+                                            <?php
+                                            //must be name of result to check dB data on top, fetchs data
+                                                while($row=$resultLog->fetch_assoc()){
+                                                    
+                                                    //var names = row of data with explicit dB row name used
+                                                    $build =$row['BuildingID'];
+                                                    $room =$row['RoomID']; 
+                                                    $currentF =$row['CurrentFootfall']; 
+                                                    $Times =$row['Time'];       
+                                                //now echo to display vars with fetched data from dB
+                                                echo "
                                                 
-                                                //var names = row of data with explicit dB row name used
-                                                $build =$row['BuildingID'];
-                                                $room =$row['RoomID']; 
-                                                $currentF =$row['CurrentFootfall']; 
-                                                $Times =$row['Time'];       
-                                            //now echo to display vars with fetched data from dB
-                                              echo "
-                                              
-                                              <tr>
-                                              <td>$build</td> 
-                                              <td>$room</td> 
-                                              <td>$currentF</td>
-                                              <td>$Times</td>
-                                              </tr>";
-                                            }
-                                        ?>
+                                                <tr>
+                                                <td>$build</td> 
+                                                <td>$room</td> 
+                                                <td>$currentF</td>
+                                                <td>$Times</td>
+                                                </tr>";
+                                                }
+                                            ?>
 
-                                    </tbody>
-                                </table>
+                                        </tbody>
+                                    </table>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- end of logging info -->
-        <div class="col-lg-4">
-        </div>
-            <!--start-->
-            <!-- <div class="col-lg-6">
-                    <div class="footer-form set-bg">
-                        <div class="row">
-                            <div class="col-lg-10">
-                                <div class="section-title">
-                                    <h2>Sensor Connect Test</h2>
-                                    <div class="alert alert-success" role="alert">
-                                        Current People : <p id ="myCount"> </p>
-                                    </div> -->
-                                    <!-- <h1 class="cover-heading">PI Button state</h1>
-                                        <div class="onoffswitch" style="margin:0px auto;">
-                                            <div class="switch demo3">
-                                            <input type="checkbox" id="mybuttonGPIO">
-                                            <label><i></i></label>
-                                            </div>
-                                        </div> -->
-                                <!-- </div>
-                            </div>
-                        </div>
-                    </div>
-
-            </div> -->
-            <!-- end -->
+            <!-- create space and centre table -->
+            <div class="col-lg-4">
+            </div>
         <div>
-    </div>
+</div>
 
 
 
-    <!-- Footer Section Begin -->
-    <!-- <footer class="footer-section">
+<!-- Footer Section Begin -->
+    <footer class="footer-section">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-6">
+                <div class="col-lg-12">
                     <div class="map-location">
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2312.11136348084!2d-5.936243348119055!3d54.58441178885766!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x486108ea57227da7%3A0x3cecfa2a15d642e1!2sQueen&#39;s%20University%20Belfast!5e0!3m2!1sen!2suk!4v1600390527886!5m2!1sen!2suk" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="footer-form set-bg" data-setbg="img/squat.jpg">
-                        <div class="row">
-                            <div class="col-lg-10">
-                                <div class="section-title">
-                                    <h2>Any Queries? Contact us today!</h2>
-                                    <p>Tomorrow isn't promised, so let us help you with your fitness goals today.</p>
-                                </div>
-                                <form action="#" method='POST' enctype="multipart/form-data">
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <input type="text" placeholder="Name" name="name">
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <input type="text" placeholder="Email" name="email">
-                                        </div>
-                                        <div class="col-lg-12">
-                                            <input type="text" placeholder="Subject" name="subject">
-                                            <textarea placeholder="Message" name="body"></textarea>
-                                            <button type="submitInterest" id="registerInterestBtn" name="registerInterest">Submit</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
-    </footer> -->
-    <!-- Footer Section End -->
+    </footer>
+<!-- Footer Section End -->
 
-<?php
-//allowing users to download logging data https://www.youtube.com/watch?v=Xp0pZ6OmJv0
-//  if(isset($_POST['download'])){
-//     // $selectDownload = "SELECT * FROM FMusers WHERE RoomID = '$currentroomId' AND BuildingID = '$buildingId' AND `Time` BETWEEN '$newDate 00:00:00' AND '$newDate 23:59:59' ORDER BY `Time` DESC";
-//     // $selectDownload = "SELECT * FROM FMusers WHERE RoomID = '$currentroomId' AND BuildingID = '$buildingId' ORDER BY `Time` DESC"; this is specifc download, trying generic all first
-//     $selectDownload = "SELECT * FROM FMusers ORDER BY `Time` DESC";
-//     $downloadResult = $conn->query($selectDownload);
-//     if(!$downloadResult){
-//     echo $conn->error;
-//     }
-//     if($downloadResult->num_rows > 0){
-//         $delimiter = ",";
-//         $filename = "footfallData_" . date('Y-m-d') . ".csv";
 
-//         //file pointer
-//         $file = fopen('php://memory', 'w');
-
-//         //set headers for columns
-//         $fields = array('FootfallID','RoomID','BuildingID','CurrentFootfall','Time');
-//         fputcsv($file, $fields, $delimiter);
-
-//         //output rows of data, format as csv and write to file pointer
-//         while($row = $downloadResult->fetch_assoc()){
-//            // $status = ($row['status'] =='1')?'Active':'Inactive'; //ternary operatore to set dv bool value as string value active if 1 is true or inactive if false/0 
-//            $lineData = array($row['FootfallID'], $row['RoomID'], $row['BuildingID'], $row['CurrentFootfall'], $row['Time'],);
-//            fputcsv($file, $lineData, $delimiter);
-//         }
-//         //move back to beginning of file
-//         fseek($file, 0);
-
-//         //set headers to download file rather than display, needs to be on it's own page to change header info!
-//         header('Content-Type: text/csv');
-//         header('Content-Disposition: attachment; filename="' . $filename . '";');
-
-//         //output all remaining data on a file pointer
-//         fpassthru($file);
-//     }
-//     // not necessary as staying on same page?
-//     //exit;
-  
-//  }
-
-?>
     <!-- Js Plugins -->
     <script src="/js/jquery-3.3.1.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/jquery.slicknav.js"></script>
     <script src="/js/owl.carousel.min.js"></script>
-    <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js"></script> -->
     <script src="/js/main.js"></script>
 
 
