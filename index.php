@@ -23,7 +23,6 @@ if(!$resultLog){
     <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
    
     <!-- custom styles -->
-    <!-- <link rel="stylesheet" href="../css/style.css" type="text/css"> -->
     <link rel="stylesheet" href="css/style.css" type="text/css">
 
 
@@ -242,7 +241,7 @@ if(!$resultLog){
                             </div>
                             <!-- button to view peaks based on shown data -->
                             <div class="col-lg-4">
-                                <a href="https://queens-footfall-monitor.herokuapp.com/" class="primary-btn">live Data Viewer</a>
+                                <a href="/peaktimes.php" class="primary-btn">View trends</a>
                             </div>
                             <div class="col-lg-4">
                                 <!-- link to node.js live monitoring and explain -->
@@ -422,7 +421,7 @@ if(!$resultLog){
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-lg-5"> 
+                            <div class="col-lg-4"> 
                                 <!-- form used to trigger post when button pressed -->
                                 <form action="index.php" method='POST' enctype="multipart/form-data">
                                 <!-- button is named same as other buildings, so same downlaod php script carried out at bottom -->
@@ -430,10 +429,11 @@ if(!$resultLog){
                                     <a href="loggingDownload.php" class="primary-btn">Download Logging</a>
                                 </form>
                             </div>
-                            <!-- create space -->
-                            <div class="col-lg-2">
+                            <!-- button to view peaks based on shown data -->
+                            <div class="col-lg-4">
+                                <a href="/peaktimes.php" class="primary-btn">View trends</a>
                             </div>
-                            <div class="col-lg-5">
+                            <div class="col-lg-4">
                                 <!-- link to node.js live monitoring and explain -->
                                 <a href="https://queens-footfall-monitor.herokuapp.com/" class="primary-btn">live Data Viewer</a>
                             </div>
@@ -610,7 +610,7 @@ if(!$resultLog){
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-lg-5"> 
+                                        <div class="col-lg-4"> 
                                             <!-- form used to trigger post when button pressed -->
                                             <form action="index.php" method='POST' enctype="multipart/form-data">
                                             <!-- button is named same as other buildings, so same downlaod php script carried out at bottom -->
@@ -618,10 +618,11 @@ if(!$resultLog){
                                                 <a href="loggingDownload.php" class="primary-btn">Download Logging</a>
                                             </form>
                                         </div>
-                                        <!-- create space -->
-                                        <div class="col-lg-2">
+                                        <!-- button to view peaks based on shown data -->
+                                        <div class="col-lg-4">
+                                            <a href="/peaktimes.php" class="primary-btn">View trends</a>
                                         </div>
-                                        <div class="col-lg-5">
+                                        <div class="col-lg-4">
                                             <!-- link to node.js live monitoring and explain -->
                                             <a href="https://queens-footfall-monitor.herokuapp.com/" class="primary-btn">live Data Viewer</a>
                                         </div>
@@ -635,7 +636,22 @@ if(!$resultLog){
     <!-- Hero Section End -->
 
 
-<div class="container-fluid">
+
+
+
+
+<!-- Footer Section Begin -->
+    <footer class="footer-section">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="map-location">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2312.11136348084!2d-5.936243348119055!3d54.58441178885766!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x486108ea57227da7%3A0x3cecfa2a15d642e1!2sQueen&#39;s%20University%20Belfast!5e0!3m2!1sen!2suk!4v1600390527886!5m2!1sen!2suk" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
         <div class="row">
             <!-- create space and centre table -->
             <div class="col-lg-4">
@@ -694,20 +710,6 @@ if(!$resultLog){
             </div>
         <div>
 </div>
-
-
-
-<!-- Footer Section Begin -->
-    <footer class="footer-section">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="map-location">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2312.11136348084!2d-5.936243348119055!3d54.58441178885766!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x486108ea57227da7%3A0x3cecfa2a15d642e1!2sQueen&#39;s%20University%20Belfast!5e0!3m2!1sen!2suk!4v1600390527886!5m2!1sen!2suk" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-                    </div>
-                </div>
-            </div>
-        </div>
     </footer>
 <!-- Footer Section End -->
 
