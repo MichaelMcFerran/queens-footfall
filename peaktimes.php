@@ -10,6 +10,20 @@ session_start();
     header("location: /index.php");
  }
 
+ include('conn.php'); //database config file
+$roomCapacity = "SELECT DISTINCT Capacity FROM FMRooms WHERE roomName = '$room'"; 
+//added limit for media device viewing
+$resultCap = $conn->query($roomCapacity);
+if(!$resultCap){
+    echo $conn->error;
+ } 
+ else {
+        while($row15=$resultCap->fetch_assoc()){
+        
+            // gets capacity from databases' rooms table
+            $roomCap =$row15['Capacity']; 
+        }
+    }
 ?>
 <head>
 
@@ -25,7 +39,7 @@ session_start();
     <link rel="stylesheet" href="css/style.css" type="text/css">
 
 
- <!-- Queens logo -->
+ <!-- Queens logo  on browser tab corner-->
 	<!-- ****** faviconit.com favicons ****** -->
 	<link rel="shortcut icon" href="imh/favicon.ico">
 	<link rel="icon" sizes="16x16 32x32 64x64" href="img/faviconit/favicon.ico">
@@ -76,7 +90,7 @@ session_start();
                                 <?php
                                     $date = $_SESSION['date'];
                                     // need to add capacity from db when created
-                                    echo "Average footfall for $date where capacity is 100";
+                                    echo "Average footfall for $date where capacity is $roomCap";
                                 ?>
                             </h1>
                     </div>

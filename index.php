@@ -6,7 +6,7 @@
 session_start();
 
 // finds logged data entry that can populate table on down the page
-include('conn.php'); //changed to /
+include('conn.php'); 
 $dBLogConnect = "SELECT * FROM FMusers ORDER BY `Time` DESC
 LIMIT 20"; //added limit for media device viewing
 $resultLog = $conn->query($dBLogConnect);
@@ -159,7 +159,7 @@ if(!$resultLog){
                                                         }
                                                     }
                                                 //db entry
-                                                $selectToday = "SELECT * FROM FMusers WHERE RoomID = '$currentroomId' AND BuildingID = '$buildingId' AND `Time` BETWEEN '$currentdate 00:00:00' AND '$currentdate 23:59:59' ORDER BY `Time` DESC LIMIT 2";
+                                                $selectToday = "SELECT * FROM FMusers WHERE RoomID = '$currentroomId' AND BuildingID = '$buildingId' AND `Time` BETWEEN '$currentdate 00:00:00' AND '$currentdate 23:59:59' ORDER BY `Time` DESC LIMIT 3";
                                                 //db query
                                                 $todayResult = $conn->query($selectToday);
                                                 if(!$todayResult){
