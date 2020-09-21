@@ -234,8 +234,8 @@ if(!$resultLog){
                                             $_SESSION['building'] = $name;
                                             $_SESSION['date'] = $newDate;
 
-                                            //now to get full db entry to find average footfall per hour between 9 -5 
-                                            $avg9am= "SELECT AVG(CurrentFootfall) 'Average Footfall' FROM FMusers WHERE RoomID = '$currentroomId' AND BuildingID = '$buildingId' AND `Time` BETWEEN '$newDate 08:00:00' AND '$newDate 09:00:00' ORDER BY `Time`";
+                                            //now to get full db entry to find average footfall per hour between 9 -5, times offset by -1 hour to local time due to db differences
+                                            $avg9am= "SELECT AVG(CurrentFootfall) 'Average Footfall' FROM FMusers WHERE RoomID = '$currentroomId' AND BuildingID = '$buildingId' AND `Time` BETWEEN '$newDate 15:00:00' AND '$newDate 16:00:00' ORDER BY `Time`";
                                             $avg9Result = $conn->query($avg9am);
                                             if(!$avg9Result){
                                                 echo $conn->error;
@@ -243,11 +243,12 @@ if(!$resultLog){
                                              else {
                                                 while($row2=$avg9Result->fetch_assoc()){
                                                     // get result array
-                                                    // $avg9 =$row['Average Footfall']; 
-                                                    if(is_null($avg9Result)){
+                                                     $avg9 =$row['Average Footfall']; 
+                                                    // if(is_null($avg9Result)){
+                                                       if(is_null($avg9)){
                                                         $_SESSION['avg9am'] = '1'; //if avg value is null/ no entry during this hour, pass session value as 1
                                                     } else {
-                                                        $avg9 =$row2['Average Footfall']; 
+                                                       // $avg9 =$row2['Average Footfall']; 
                                                         $_SESSION['avg9am'] = $avg9;
                                                     }
                                                 }
