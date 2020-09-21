@@ -100,7 +100,10 @@ include('conn.php'); //changed to /
 
 <!-- start of progress bars showing average footfall for hours between 9 -5 with values inputted by php and mysql -->
 <div class="progress">
-    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">9am - 10am</div>
+    <div class="progress-bar" role="progressbar" aria-valuenow="
+        <?php $avg9 = $_SESSION['avg9am'];
+              echo "$avg9";
+        ?>" aria-valuemin="0" aria-valuemax="100">9am - 10am</div>
 </div>
 <div class="progress">
     <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">10am - 11am</div>
