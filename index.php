@@ -231,7 +231,8 @@ if(!$resultLog){
                                             //creates a session based on public user, no login needed, and passing variables from pressing show data then the view trends button
                                             $_SESSION['public'] = "publicuser"; //used to confirm that show data pressed before view trends
                                             $_SESSION['room'] = $room;
-                                            $_SESSION['building'] = $building;
+                                            $_SESSION['building'] = $name;
+                                            $_SESSION['date'] = $newDate;
 
                                             
                                         } 

@@ -84,7 +84,13 @@ include('conn.php'); //changed to /
                                 ?> 
                             </h4>
                             
-                            <h1>Average footfall - PHP date. Capacity - PHP</h1>
+                            <h1>
+                                <?php
+                                    $date = $_SESSION['date'];
+                                    // need to add capacity from db when created
+                                    echo "Average footfall for $date where capacity is 100";
+                                ?>
+                            </h1>
                     </div>
                     <!-- <div class="row"> -->
                         <div class="progress">
@@ -127,9 +133,9 @@ include('conn.php'); //changed to /
 </section>
     <!-- end of section -->
 
-                        <!-- <div class="progress">
+                        <div class="progress">
                             <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div> -->
+                        </div>
 
 </body>
 
