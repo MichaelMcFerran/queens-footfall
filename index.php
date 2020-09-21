@@ -243,10 +243,11 @@ if(!$resultLog){
                                              else {
                                                 while($row2=$avg9Result->fetch_assoc()){
                                                     // get result array
-                                                    $avg9 =$row['Average Footfall']; 
-                                                    if(is_null($avg9)){
+                                                    // $avg9 =$row['Average Footfall']; 
+                                                    if(is_null($avg9Result)){
                                                         $_SESSION['avg9am'] = '1'; //if avg value is null/ no entry during this hour, pass session value as 1
                                                     } else {
+                                                        $avg9 =$row['Average Footfall']; 
                                                         $_SESSION['avg9am'] = $avg9;
                                                     }
                                                 }
