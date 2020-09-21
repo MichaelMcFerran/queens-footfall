@@ -11,19 +11,6 @@ session_start();
  }
 
  include('conn.php'); //database config file
-$roomCapacity = "SELECT DISTINCT Capacity FROM FMRooms WHERE roomName = '$room'"; 
-//added limit for media device viewing
-$resultCap = $conn->query($roomCapacity);
-if(!$resultCap){
-    echo $conn->error;
- } 
- else {
-        while($row15=$resultCap->fetch_assoc()){
-        
-            // gets capacity from databases' rooms table
-            $roomCap =$row15['Capacity']; 
-        }
-    }
 ?>
 <head>
 
@@ -89,6 +76,19 @@ if(!$resultCap){
                             <h1>
                                 <?php
                                     $date = $_SESSION['date'];
+                                    $roomCapacity = "SELECT DISTINCT Capacity FROM FMRooms WHERE roomName = '$room'"; 
+                                    //added limit for media device viewing
+                                    $resultCap = $conn->query($roomCapacity);
+                                        if(!$resultCap){
+                                            echo $conn->error;
+                                        } 
+                                        else {
+                                                while($row15=$resultCap->fetch_assoc()){
+                                                
+                                                    // gets capacity from databases' rooms table
+                                                    $roomCap =$row15['Capacity']; 
+                                                }
+                                            }
                                     // need to add capacity from db when created
                                     echo "Average footfall for $date where capacity is $roomCap";
                                 ?>
