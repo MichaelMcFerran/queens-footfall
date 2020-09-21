@@ -101,7 +101,7 @@ include('conn.php'); //changed to /
 <!-- start of progress bars showing average footfall for hours between 9 -5 with values inputted by php and mysql -->
 <!-- container to hold all the daily values together -->
 <div class="container">
-  <h2>9AM - 10AM</h2>
+  <h2  style="color:white;">9AM - 10AM</h2>
   <div class="progress">
     <!-- value is passed in through session value of last page into the style tag and displayed  -->
     <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: <?php
@@ -113,8 +113,8 @@ include('conn.php'); //changed to /
         ?>
     </div>
   </div>
-  
-  <h2>10AM - 11AM</h2>
+
+  <h2  style="color:white;">10AM - 11AM</h2>
   <div class="progress">
     <!-- value is passed in through session value of last page into the style tag and displayed  -->
     <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: <?php
@@ -127,7 +127,7 @@ include('conn.php'); //changed to /
     </div>
   </div>
 
-  <h2>11AM - 12PM</h2>
+  <h2  style="color:white;">11AM - 12PM</h2>
   <div class="progress">
     <!-- value is passed in through session value of last page into the style tag and displayed  -->
     <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: <?php
@@ -140,7 +140,7 @@ include('conn.php'); //changed to /
     </div>
   </div>
 
-  <h2>12PM - 1PM</h2>
+  <h2  style="color:white;">12PM - 1PM</h2>
   <div class="progress">
     <!-- value is passed in through session value of last page into the style tag and displayed  -->
     <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: <?php
@@ -153,7 +153,7 @@ include('conn.php'); //changed to /
     </div>
   </div>
 
-  <h2>1PM - 2PM</h2>
+  <h2  style="color:white;">1PM - 2PM</h2>
   <div class="progress">
     <!-- value is passed in through session value of last page into the style tag and displayed  -->
     <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: <?php
@@ -166,7 +166,7 @@ include('conn.php'); //changed to /
     </div>
   </div>
 
-  <h2>2PM - 3PM</h2>
+  <h2  style="color:white;">2PM - 3PM</h2>
   <div class="progress">
     <!-- value is passed in through session value of last page into the style tag and displayed  -->
     <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: <?php
@@ -179,7 +179,7 @@ include('conn.php'); //changed to /
     </div>
   </div>
 
-  <h2>3PM - 4PM</h2>
+  <h2  style="color:white;">3PM - 4PM</h2>
   <div class="progress">
     <!-- value is passed in through session value of last page into the style tag and displayed  -->
     <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: <?php
@@ -192,7 +192,7 @@ include('conn.php'); //changed to /
     </div>
   </div>
 
-  <h2>4PM - 5PM</h2>
+  <h2  style="color:white;">4PM - 5PM</h2>
   <div class="progress">
     <!-- value is passed in through session value of last page into the style tag and displayed  -->
     <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: <?php
@@ -205,7 +205,7 @@ include('conn.php'); //changed to /
     </div>
   </div>
 
-  <h2>5PM - 6PM</h2>
+  <h2  style="color:white;">5PM - 6PM</h2>
   <div class="progress">
     <!-- value is passed in through session value of last page into the style tag and displayed  -->
     <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: <?php
