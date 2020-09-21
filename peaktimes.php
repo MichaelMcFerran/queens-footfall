@@ -105,7 +105,7 @@ include('conn.php'); //changed to /
               echo "$avg9";
         ?>" aria-valuemin="0" aria-valuemax="100">9am - 10am</div>
 </div>
-<div class="progress">
+<!-- <div class="progress">
     <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">10am - 11am</div>
 </div>
 <div class="progress">
@@ -125,6 +125,22 @@ include('conn.php'); //changed to /
 </div>
 <div class="progress">
     <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">4pm - 5pm</div>
+</div> -->
+
+<!-- container to hold all the daily values together -->
+<div class="container">
+  <h2>9AM - 10AM</h2>
+  <div class="progress">
+    <!-- value is passed in through session value of last page into the style tag and displayed  -->
+    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: <?php
+        $avg9 = $_SESSION['avg9am'];
+        echo $avg9;
+        ?>%;">
+                <?php
+        echo $avg9;
+        ?>
+    </div>
+  </div>
 </div>
 <!-- end of progress bars -->
 
