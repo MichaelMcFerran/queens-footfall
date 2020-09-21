@@ -2,6 +2,9 @@
 <html>
 <!-- insert all preloaded PHP scripts here to autoload all data before rendering page contents, manipulated page content scritps go on bottom -->
 <?php
+//start a session to pass variables onto other pages when needed
+session_start();
+
 // finds logged data entry that can populate table on down the page
 include('conn.php'); //changed to /
 $dBLogConnect = "SELECT * FROM FMusers ORDER BY `Time` DESC
@@ -224,6 +227,13 @@ if(!$resultLog){
                                                 </tr>";
                                                 }
                                             }
+
+                                            //creates a session based on public user, no login needed, and passing into next page variables from pressing show data then the view trends button
+                                            $_SESSION['public'] = "publicuser";
+                                            $_SESSION['room'] = $room;
+                                            $_SESSION['building'] = $building;
+
+                                            
                                         } 
                                         ?>
 
