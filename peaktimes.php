@@ -99,34 +99,6 @@ include('conn.php'); //changed to /
 </section> <!-- end of section -->
 
 <!-- start of progress bars showing average footfall for hours between 9 -5 with values inputted by php and mysql -->
-<div class="progress">
-    <div class="progress-bar" role="progressbar" aria-valuenow="
-        <?php $avg9 = $_SESSION['avg9am'];
-              echo "$avg9";
-        ?>" aria-valuemin="0" aria-valuemax="100">9am - 10am</div>
-</div>
-<!-- <div class="progress">
-    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">10am - 11am</div>
-</div>
-<div class="progress">
-    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">11am - 12pm</div>
-</div>
-<div class="progress">
-    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">12pm - 1pm</div>
-</div>
-<div class="progress">
-    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">1pm - 2pm</div>
-</div>
-<div class="progress">
-    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">2pm - 3pm</div>
-</div>
-<div class="progress">
-    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">3pm - 4pm</div>
-</div>
-<div class="progress">
-    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">4pm - 5pm</div>
-</div> -->
-
 <!-- container to hold all the daily values together -->
 <div class="container">
   <h2>9AM - 10AM</h2>
@@ -137,7 +109,111 @@ include('conn.php'); //changed to /
         echo $avg9;
         ?>%;">
                 <?php
-        echo $avg9;
+        echo $avg9; //this displays value numerically ontop of bar
+        ?>
+    </div>
+  </div>
+  
+  <h2>10AM - 11AM</h2>
+  <div class="progress">
+    <!-- value is passed in through session value of last page into the style tag and displayed  -->
+    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: <?php
+        $avg10 = $_SESSION['avg10am'];
+        echo $avg10;
+        ?>%;">
+                <?php
+        echo $avg10; //this displays value numerically ontop of bar
+        ?>
+    </div>
+  </div>
+
+  <h2>11AM - 12PM</h2>
+  <div class="progress">
+    <!-- value is passed in through session value of last page into the style tag and displayed  -->
+    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: <?php
+        $avg11 = $_SESSION['avg11am'];
+        echo $avg11;
+        ?>%;">
+                <?php
+        echo $avg11; //this displays value numerically ontop of bar
+        ?>
+    </div>
+  </div>
+
+  <h2>12PM - 1PM</h2>
+  <div class="progress">
+    <!-- value is passed in through session value of last page into the style tag and displayed  -->
+    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: <?php
+        $avg12 = $_SESSION['avg12pm'];
+        echo $avg12;
+        ?>%;">
+                <?php
+        echo $avg12; //this displays value numerically ontop of bar
+        ?>
+    </div>
+  </div>
+
+  <h2>1PM - 2PM</h2>
+  <div class="progress">
+    <!-- value is passed in through session value of last page into the style tag and displayed  -->
+    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: <?php
+        $avg1 = $_SESSION['avg1pm'];
+        echo $avg1;
+        ?>%;">
+                <?php
+        echo $avg1; //this displays value numerically ontop of bar
+        ?>
+    </div>
+  </div>
+
+  <h2>2PM - 3PM</h2>
+  <div class="progress">
+    <!-- value is passed in through session value of last page into the style tag and displayed  -->
+    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: <?php
+        $avg2 = $_SESSION['avg2pm'];
+        echo $avg2;
+        ?>%;">
+                <?php
+        echo $avg2; //this displays value numerically ontop of bar
+        ?>
+    </div>
+  </div>
+
+  <h2>3PM - 4PM</h2>
+  <div class="progress">
+    <!-- value is passed in through session value of last page into the style tag and displayed  -->
+    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: <?php
+        $avg3 = $_SESSION['avg3pm'];
+        echo $avg3;
+        ?>%;">
+                <?php
+        echo $avg3; //this displays value numerically ontop of bar
+        ?>
+    </div>
+  </div>
+
+  <h2>4PM - 5PM</h2>
+  <div class="progress">
+    <!-- value is passed in through session value of last page into the style tag and displayed  -->
+    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: <?php
+        $avg4 = $_SESSION['avg4pm'];
+        echo $avg4;
+        ?>%;">
+                <?php
+        echo $avg4; //this displays value numerically ontop of bar
+        ?>
+    </div>
+  </div>
+
+  <h2>5PM - 6PM</h2>
+  <div class="progress">
+    <!-- value is passed in through session value of last page into the style tag and displayed  -->
+    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: <?php
+        $avg5 = $_SESSION['avg5pm'];
+        echo $avg5;
+        ?>%;">
+                <?php
+        echo $avg5; //this displays value numerically ontop of bar
         ?>
     </div>
   </div>
