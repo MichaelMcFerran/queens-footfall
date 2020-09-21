@@ -10,17 +10,6 @@ session_start();
     header("location: /index.php");
  }
 
-// finds logged data entry that can populate table on down the page
-include('conn.php'); //changed to /
-// $dBLogConnect = "SELECT * FROM FMusers ORDER BY `Time` DESC
-// LIMIT 10"; //added limit for media device viewing
-// $resultLog = $conn->query($dBLogConnect);
-
-// if(!$resultLog){
-//   echo $conn->error;
-// }
-
-
 ?>
 <head>
 

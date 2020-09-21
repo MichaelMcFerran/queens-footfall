@@ -29,7 +29,7 @@ if(!$resultLog){
     <link rel="stylesheet" href="css/style.css" type="text/css">
 
 
- <!-- Queens logo -->
+ <!-- Queens logo on broswer tab corner -->
 	<!-- ****** faviconit.com favicons ****** -->
 	<link rel="shortcut icon" href="imh/favicon.ico">
 	<link rel="icon" sizes="16x16 32x32 64x64" href="img/faviconit/favicon.ico">
@@ -279,7 +279,7 @@ if(!$resultLog){
                                                 echo $conn->error;
                                              } 
                                              else {
-                                                while($row4=$avg9Result->fetch_assoc()){
+                                                while($row4=$avg11Result->fetch_assoc()){
                                                     // get result array
                                                      $avg11 =$row4['Average Footfall']; 
                                                        if(is_null($avg11)){
@@ -402,7 +402,8 @@ if(!$resultLog){
                                                         $_SESSION['avg5pm'] = $avg5;
                                                     }
                                                 }
-                                            } //end of average datasearch for 5pm - 6pm, with session values set for results   
+                                            } //end of average datasearch for 5pm - 6pm, with session values set for results 
+                                            //end of all datasearches  
                                         } 
                                         ?>
 
@@ -548,6 +549,183 @@ if(!$resultLog){
                                                     </tr>";
                                                     }
                                                 }
+
+                                                                                            //creates a session based on public user, no login needed, and passing variables from pressing show data then the view trends button
+                                            $_SESSION['public'] = "publicuser"; //used to confirm that show data pressed before view trends
+                                            $_SESSION['room'] = $room;
+                                            $_SESSION['building'] = $name;
+                                            $_SESSION['date'] = $newDate;
+
+                                            //now to get full db entry to find average footfall per hour between 9 -5, times offset by -1 hour to local time due to db differences
+                                            
+                                            //start of average search for 9am -10am
+                                            $avg9am= "SELECT AVG(CurrentFootfall) 'Average Footfall' FROM FMusers WHERE RoomID = '$currentroomId' AND BuildingID = '$buildingId' AND `Time` BETWEEN '$newDate 08:00:00' AND '$newDate 09:00:00' ORDER BY `Time`";
+                                            $avg9Result = $conn->query($avg9am);
+                                            if(!$avg9Result){
+                                                echo $conn->error;
+                                             } 
+                                             else {
+                                                while($row2=$avg9Result->fetch_assoc()){
+                                                    // get result array
+                                                     $avg9 =$row2['Average Footfall']; 
+                                                       if(is_null($avg9)){
+                                                        $_SESSION['avg9am'] = '1'; //if avg value is null/ no entry during this hour, pass session value as 1
+                                                    } else {; 
+                                                        $_SESSION['avg9am'] = $avg9;
+                                                    }
+                                                }
+                                            } //end of average datasearch for 9am - 10am, with session values set for results
+                                            
+                                            //start of average search for 10am - 11am
+                                            $avg10am= "SELECT AVG(CurrentFootfall) 'Average Footfall' FROM FMusers WHERE RoomID = '$currentroomId' AND BuildingID = '$buildingId' AND `Time` BETWEEN '$newDate 09:00:00' AND '$newDate 10:00:00' ORDER BY `Time`";
+                                            $avg10Result = $conn->query($avg10am);
+                                            if(!$avg10Result){
+                                                echo $conn->error;
+                                             } 
+                                             else {
+                                                while($row3=$avg10Result->fetch_assoc()){
+                                                    // get result array
+                                                     $avg10 =$row3['Average Footfall']; 
+                                                       if(is_null($avg10)){
+                                                        $_SESSION['avg10am'] = '1'; //if avg value is null/ no entry during this hour, pass session value as 1
+                                                    } else {
+                                                        $_SESSION['avg10am'] = $avg10;
+                                                    }
+                                                }
+                                            } //end of average datasearch for 10am - 11am, with session values set for results
+
+                                            //start of average search for 11am -12pm
+                                            $avg11am= "SELECT AVG(CurrentFootfall) 'Average Footfall' FROM FMusers WHERE RoomID = '$currentroomId' AND BuildingID = '$buildingId' AND `Time` BETWEEN '$newDate 10:00:00' AND '$newDate 11:00:00' ORDER BY `Time`";
+                                            $avg11Result = $conn->query($avg11am);
+                                            if(!$avg11Result){
+                                                echo $conn->error;
+                                             } 
+                                             else {
+                                                while($row4=$avg11Result->fetch_assoc()){
+                                                    // get result array
+                                                     $avg11 =$row4['Average Footfall']; 
+                                                       if(is_null($avg11)){
+                                                        $_SESSION['avg11am'] = '1'; //if avg value is null/ no entry during this hour, pass session value as 1
+                                                    } else {
+                                                        $_SESSION['avg11am'] = $avg11;
+                                                    }
+                                                }
+                                            } //end of average datasearch for 11am -12pm, with session values set for results
+                                            
+                                            //start of average search for 12pm -1pm
+                                            $avg12pm= "SELECT AVG(CurrentFootfall) 'Average Footfall' FROM FMusers WHERE RoomID = '$currentroomId' AND BuildingID = '$buildingId' AND `Time` BETWEEN '$newDate 11:00:00' AND '$newDate 12:00:00' ORDER BY `Time`";
+                                            $avg12Result = $conn->query($avg12pm);
+                                            if(!$avg12Result){
+                                                echo $conn->error;
+                                             } 
+                                             else {
+                                                while($row5=$avg12Result->fetch_assoc()){
+                                                    // get result array
+                                                     $avg12 =$row5['Average Footfall']; 
+                                                       if(is_null($avg12)){
+                                                        $_SESSION['avg12pm'] = '1'; //if avg value is null/ no entry during this hour, pass session value as 1
+                                                    } else {
+                                                        $_SESSION['avg12pm'] = $avg12;
+                                                    }
+                                                }
+                                            } //end of average datasearch for 12pm -1pm, with session values set for results
+
+                                            //start of average search for 1pm -2pm
+                                            $avg1pm= "SELECT AVG(CurrentFootfall) 'Average Footfall' FROM FMusers WHERE RoomID = '$currentroomId' AND BuildingID = '$buildingId' AND `Time` BETWEEN '$newDate 12:00:00' AND '$newDate 13:00:00' ORDER BY `Time`";
+                                            $avg1Result = $conn->query($avg1pm);
+                                            if(!$avg1Result){
+                                                echo $conn->error;
+                                             } 
+                                             else {
+                                                while($row6=$avg1Result->fetch_assoc()){
+                                                    // get result array
+                                                     $avg1 =$row6['Average Footfall']; 
+                                                       if(is_null($avg1)){
+                                                        $_SESSION['avg1pm'] = '1'; //if avg value is null/ no entry during this hour, pass session value as 1
+                                                    } else {
+                                                        $_SESSION['avg1pm'] = $avg1;
+                                                    }
+                                                }
+                                            } //end of average datasearch for 1pm - 2pm, with session values set for results
+
+                                            //start of average search for 2pm -3pm
+                                            $avg2pm= "SELECT AVG(CurrentFootfall) 'Average Footfall' FROM FMusers WHERE RoomID = '$currentroomId' AND BuildingID = '$buildingId' AND `Time` BETWEEN '$newDate 13:00:00' AND '$newDate 14:00:00' ORDER BY `Time`";
+                                            $avg2Result = $conn->query($avg2pm);
+                                            if(!$avg2Result){
+                                                echo $conn->error;
+                                             } 
+                                             else {
+                                                while($row7=$avg2Result->fetch_assoc()){
+                                                    // get result array
+                                                     $avg2 =$row7['Average Footfall']; 
+                                                       if(is_null($avg2)){
+                                                        $_SESSION['avg2pm'] = '1'; //if avg value is null/ no entry during this hour, pass session value as 1
+                                                    } else { 
+                                                        $_SESSION['avg2pm'] = $avg2;
+                                                    }
+                                                }
+                                            } //end of average datasearch for 2pm -3pm, with session values set for results
+
+                                            //start of average search for 3pm - 4pm
+                                            $avg3pm= "SELECT AVG(CurrentFootfall) 'Average Footfall' FROM FMusers WHERE RoomID = '$currentroomId' AND BuildingID = '$buildingId' AND `Time` BETWEEN '$newDate 14:00:00' AND '$newDate 15:00:00' ORDER BY `Time`";
+                                            $avg3Result = $conn->query($avg3pm);
+                                            if(!$avg3Result){
+                                                echo $conn->error;
+                                             } 
+                                             else {
+                                                while($row8=$avg3Result->fetch_assoc()){
+                                                    // get result array
+                                                     $avg3 =$row8['Average Footfall']; 
+                                                    // if(is_null($avg9Result)){
+                                                       if(is_null($avg3)){
+                                                        $_SESSION['avg3pm'] = '1'; //if avg value is null/ no entry during this hour, pass session value as 1
+                                                    } else {
+                                                       // $avg9 =$row2['Average Footfall']; 
+                                                        $_SESSION['avg3pm'] = $avg3;
+                                                    }
+                                                }
+                                            } //end of average datasearch for 3pm - 4pm, with session values set for results
+                                            
+                                            //start of average search for 4pm - 5pm
+                                            $avg4pm= "SELECT AVG(CurrentFootfall) 'Average Footfall' FROM FMusers WHERE RoomID = '$currentroomId' AND BuildingID = '$buildingId' AND `Time` BETWEEN '$newDate 15:00:00' AND '$newDate 16:00:00' ORDER BY `Time`";
+                                            $avg4Result = $conn->query($avg4pm);
+                                            if(!$avg4Result){
+                                                echo $conn->error;
+                                             } 
+                                             else {
+                                                while($row9=$avg4Result->fetch_assoc()){
+                                                    // get result array
+                                                     $avg4 =$row9['Average Footfall']; 
+                                                    // if(is_null($avg9Result)){
+                                                       if(is_null($avg4)){
+                                                        $_SESSION['avg4pm'] = '1'; //if avg value is null/ no entry during this hour, pass session value as 1
+                                                    } else {
+                                                       // $avg9 =$row2['Average Footfall']; 
+                                                        $_SESSION['avg4pm'] = $avg4;
+                                                    }
+                                                }
+                                            } //end of average datasearch for 4pm - 5pm, with session values set for results   
+
+                                            //start of average search for 5pm - 6pm
+                                            $avg5pm= "SELECT AVG(CurrentFootfall) 'Average Footfall' FROM FMusers WHERE RoomID = '$currentroomId' AND BuildingID = '$buildingId' AND `Time` BETWEEN '$newDate 16:00:00' AND '$newDate 17:00:00' ORDER BY `Time`";
+                                            $avg5Result = $conn->query($avg5pm);
+                                            if(!$avg5Result){
+                                                echo $conn->error;
+                                             } 
+                                             else {
+                                                while($row10=$avg5Result->fetch_assoc()){
+                                                    // get result array
+                                                     $avg5 =$row10['Average Footfall']; 
+                                                    // if(is_null($avg9Result)){
+                                                       if(is_null($avg5)){
+                                                        $_SESSION['avg5pm'] = '1'; //if avg value is null/ no entry during this hour, pass session value as 1
+                                                    } else {
+                                                       // $avg9 =$row2['Average Footfall']; 
+                                                        $_SESSION['avg5pm'] = $avg5;
+                                                    }
+                                                }
+                                            } //end of average datasearch for 5pm - 6pm, with session values set for results 
+                                            //end of all datasearches  
                                             }
                                             //add variables for all posted data
                                             //added for security against SQL injections
@@ -592,6 +770,8 @@ if(!$resultLog){
                                                 </tr>";
                                                 }
                                             }
+
+
                                         }
                                         ?>
 
@@ -781,6 +961,183 @@ if(!$resultLog){
                                                     //         </tr>";
                                                     //         }
                                                     //     }
+
+                                            ////creates a session based on public user, no login needed, and passing variables from pressing show data then the view trends button
+                                            // $_SESSION['public'] = "publicuser"; //used to confirm that show data pressed before view trends
+                                            // $_SESSION['room'] = $room;
+                                            // $_SESSION['building'] = $name;
+                                            // $_SESSION['date'] = $newDate;
+
+                                            // //now to get full db entry to find average footfall per hour between 9 -5, times offset by -1 hour to local time due to db differences
+                                            
+                                            // //start of average search for 9am -10am
+                                            // $avg9am= "SELECT AVG(CurrentFootfall) 'Average Footfall' FROM FMusers WHERE RoomID = '$currentroomId' AND BuildingID = '$buildingId' AND `Time` BETWEEN '$newDate 08:00:00' AND '$newDate 09:00:00' ORDER BY `Time`";
+                                            // $avg9Result = $conn->query($avg9am);
+                                            // if(!$avg9Result){
+                                            //     echo $conn->error;
+                                            //  } 
+                                            //  else {
+                                            //     while($row2=$avg9Result->fetch_assoc()){
+                                            //         // get result array
+                                            //          $avg9 =$row2['Average Footfall']; 
+                                            //            if(is_null($avg9)){
+                                            //             $_SESSION['avg9am'] = '1'; //if avg value is null/ no entry during this hour, pass session value as 1
+                                            //         } else {; 
+                                            //             $_SESSION['avg9am'] = $avg9;
+                                            //         }
+                                            //     }
+                                            // } //end of average datasearch for 9am - 10am, with session values set for results
+                                            
+                                            // //start of average search for 10am - 11am
+                                            // $avg10am= "SELECT AVG(CurrentFootfall) 'Average Footfall' FROM FMusers WHERE RoomID = '$currentroomId' AND BuildingID = '$buildingId' AND `Time` BETWEEN '$newDate 09:00:00' AND '$newDate 10:00:00' ORDER BY `Time`";
+                                            // $avg10Result = $conn->query($avg10am);
+                                            // if(!$avg10Result){
+                                            //     echo $conn->error;
+                                            //  } 
+                                            //  else {
+                                            //     while($row3=$avg10Result->fetch_assoc()){
+                                            //         // get result array
+                                            //          $avg10 =$row3['Average Footfall']; 
+                                            //            if(is_null($avg10)){
+                                            //             $_SESSION['avg10am'] = '1'; //if avg value is null/ no entry during this hour, pass session value as 1
+                                            //         } else {
+                                            //             $_SESSION['avg10am'] = $avg10;
+                                            //         }
+                                            //     }
+                                            // } //end of average datasearch for 10am - 11am, with session values set for results
+
+                                            // //start of average search for 11am -12pm
+                                            // $avg11am= "SELECT AVG(CurrentFootfall) 'Average Footfall' FROM FMusers WHERE RoomID = '$currentroomId' AND BuildingID = '$buildingId' AND `Time` BETWEEN '$newDate 10:00:00' AND '$newDate 11:00:00' ORDER BY `Time`";
+                                            // $avg11Result = $conn->query($avg11am);
+                                            // if(!$avg11Result){
+                                            //     echo $conn->error;
+                                            //  } 
+                                            //  else {
+                                            //     while($row4=$avg11Result->fetch_assoc()){
+                                            //         // get result array
+                                            //          $avg11 =$row4['Average Footfall']; 
+                                            //            if(is_null($avg11)){
+                                            //             $_SESSION['avg11am'] = '1'; //if avg value is null/ no entry during this hour, pass session value as 1
+                                            //         } else {
+                                            //             $_SESSION['avg11am'] = $avg11;
+                                            //         }
+                                            //     }
+                                            // } //end of average datasearch for 11am -12pm, with session values set for results
+                                            
+                                            // //start of average search for 12pm -1pm
+                                            // $avg12pm= "SELECT AVG(CurrentFootfall) 'Average Footfall' FROM FMusers WHERE RoomID = '$currentroomId' AND BuildingID = '$buildingId' AND `Time` BETWEEN '$newDate 11:00:00' AND '$newDate 12:00:00' ORDER BY `Time`";
+                                            // $avg12Result = $conn->query($avg12pm);
+                                            // if(!$avg12Result){
+                                            //     echo $conn->error;
+                                            //  } 
+                                            //  else {
+                                            //     while($row5=$avg12Result->fetch_assoc()){
+                                            //         // get result array
+                                            //          $avg12 =$row5['Average Footfall']; 
+                                            //            if(is_null($avg12)){
+                                            //             $_SESSION['avg12pm'] = '1'; //if avg value is null/ no entry during this hour, pass session value as 1
+                                            //         } else {
+                                            //             $_SESSION['avg12pm'] = $avg12;
+                                            //         }
+                                            //     }
+                                            // } //end of average datasearch for 12pm -1pm, with session values set for results
+
+                                            // //start of average search for 1pm -2pm
+                                            // $avg1pm= "SELECT AVG(CurrentFootfall) 'Average Footfall' FROM FMusers WHERE RoomID = '$currentroomId' AND BuildingID = '$buildingId' AND `Time` BETWEEN '$newDate 12:00:00' AND '$newDate 13:00:00' ORDER BY `Time`";
+                                            // $avg1Result = $conn->query($avg1pm);
+                                            // if(!$avg1Result){
+                                            //     echo $conn->error;
+                                            //  } 
+                                            //  else {
+                                            //     while($row6=$avg1Result->fetch_assoc()){
+                                            //         // get result array
+                                            //          $avg1 =$row6['Average Footfall']; 
+                                            //            if(is_null($avg1)){
+                                            //             $_SESSION['avg1pm'] = '1'; //if avg value is null/ no entry during this hour, pass session value as 1
+                                            //         } else {
+                                            //             $_SESSION['avg1pm'] = $avg1;
+                                            //         }
+                                            //     }
+                                            // } //end of average datasearch for 1pm - 2pm, with session values set for results
+
+                                            // //start of average search for 2pm -3pm
+                                            // $avg2pm= "SELECT AVG(CurrentFootfall) 'Average Footfall' FROM FMusers WHERE RoomID = '$currentroomId' AND BuildingID = '$buildingId' AND `Time` BETWEEN '$newDate 13:00:00' AND '$newDate 14:00:00' ORDER BY `Time`";
+                                            // $avg2Result = $conn->query($avg2pm);
+                                            // if(!$avg2Result){
+                                            //     echo $conn->error;
+                                            //  } 
+                                            //  else {
+                                            //     while($row7=$avg2Result->fetch_assoc()){
+                                            //         // get result array
+                                            //          $avg2 =$row7['Average Footfall']; 
+                                            //            if(is_null($avg2)){
+                                            //             $_SESSION['avg2pm'] = '1'; //if avg value is null/ no entry during this hour, pass session value as 1
+                                            //         } else { 
+                                            //             $_SESSION['avg2pm'] = $avg2;
+                                            //         }
+                                            //     }
+                                            // } //end of average datasearch for 2pm -3pm, with session values set for results
+
+                                            // //start of average search for 3pm - 4pm
+                                            // $avg3pm= "SELECT AVG(CurrentFootfall) 'Average Footfall' FROM FMusers WHERE RoomID = '$currentroomId' AND BuildingID = '$buildingId' AND `Time` BETWEEN '$newDate 14:00:00' AND '$newDate 15:00:00' ORDER BY `Time`";
+                                            // $avg3Result = $conn->query($avg3pm);
+                                            // if(!$avg3Result){
+                                            //     echo $conn->error;
+                                            //  } 
+                                            //  else {
+                                            //     while($row8=$avg3Result->fetch_assoc()){
+                                            //         // get result array
+                                            //          $avg3 =$row8['Average Footfall']; 
+                                            //         // if(is_null($avg9Result)){
+                                            //            if(is_null($avg3)){
+                                            //             $_SESSION['avg3pm'] = '1'; //if avg value is null/ no entry during this hour, pass session value as 1
+                                            //         } else {
+                                            //            // $avg9 =$row2['Average Footfall']; 
+                                            //             $_SESSION['avg3pm'] = $avg3;
+                                            //         }
+                                            //     }
+                                            // } //end of average datasearch for 3pm - 4pm, with session values set for results
+                                            
+                                            // //start of average search for 4pm - 5pm
+                                            // $avg4pm= "SELECT AVG(CurrentFootfall) 'Average Footfall' FROM FMusers WHERE RoomID = '$currentroomId' AND BuildingID = '$buildingId' AND `Time` BETWEEN '$newDate 15:00:00' AND '$newDate 16:00:00' ORDER BY `Time`";
+                                            // $avg4Result = $conn->query($avg4pm);
+                                            // if(!$avg4Result){
+                                            //     echo $conn->error;
+                                            //  } 
+                                            //  else {
+                                            //     while($row9=$avg4Result->fetch_assoc()){
+                                            //         // get result array
+                                            //          $avg4 =$row9['Average Footfall']; 
+                                            //         // if(is_null($avg9Result)){
+                                            //            if(is_null($avg4)){
+                                            //             $_SESSION['avg4pm'] = '1'; //if avg value is null/ no entry during this hour, pass session value as 1
+                                            //         } else {
+                                            //            // $avg9 =$row2['Average Footfall']; 
+                                            //             $_SESSION['avg4pm'] = $avg4;
+                                            //         }
+                                            //     }
+                                            // } //end of average datasearch for 4pm - 5pm, with session values set for results   
+
+                                            // //start of average search for 5pm - 6pm
+                                            // $avg5pm= "SELECT AVG(CurrentFootfall) 'Average Footfall' FROM FMusers WHERE RoomID = '$currentroomId' AND BuildingID = '$buildingId' AND `Time` BETWEEN '$newDate 16:00:00' AND '$newDate 17:00:00' ORDER BY `Time`";
+                                            // $avg5Result = $conn->query($avg5pm);
+                                            // if(!$avg5Result){
+                                            //     echo $conn->error;
+                                            //  } 
+                                            //  else {
+                                            //     while($row10=$avg5Result->fetch_assoc()){
+                                            //         // get result array
+                                            //          $avg5 =$row10['Average Footfall']; 
+                                            //         // if(is_null($avg9Result)){
+                                            //            if(is_null($avg5)){
+                                            //             $_SESSION['avg5pm'] = '1'; //if avg value is null/ no entry during this hour, pass session value as 1
+                                            //         } else {
+                                            //            // $avg9 =$row2['Average Footfall']; 
+                                            //             $_SESSION['avg5pm'] = $avg5;
+                                            //         }
+                                            //     }
+                                            // } //end of average datasearch for 5pm - 6pm, with session values set for results 
+                                            //end of all datasearches  
                                                     // }
                                                     ?>
 
