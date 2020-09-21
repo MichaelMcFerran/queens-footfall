@@ -247,7 +247,7 @@ if(!$resultLog){
                                                     if(is_null($avg9Result)){
                                                         $_SESSION['avg9am'] = '1'; //if avg value is null/ no entry during this hour, pass session value as 1
                                                     } else {
-                                                        $avg9 =$row['Average Footfall']; 
+                                                        $avg9 =$row2['Average Footfall']; 
                                                         $_SESSION['avg9am'] = $avg9;
                                                     }
                                                 }
