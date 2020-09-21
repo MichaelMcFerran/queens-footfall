@@ -8,7 +8,7 @@ session_start();
 // finds logged data entry that can populate table on down the page
 include('conn.php'); //changed to /
 $dBLogConnect = "SELECT * FROM FMusers ORDER BY `Time` DESC
-LIMIT 10"; //added limit for media device viewing
+LIMIT 20"; //added limit for media device viewing
 $resultLog = $conn->query($dBLogConnect);
 
 if(!$resultLog){
@@ -234,7 +234,20 @@ if(!$resultLog){
                                             $_SESSION['building'] = $name;
                                             $_SESSION['date'] = $newDate;
 
-                                            
+                                            //now to get full db entry to find average footfall per hour between 9 -5 
+                                            $avg9am= "SELECT AVG(CurrentFootfall) 'Average Footfall' FROM .FMusers WHERE RoomID = '1' AND BuildingID = '1' AND `Time` BETWEEN '2020-09-17 08:00:00' AND '2020-09-17 09:00:00' ORDER BY `Time`";
+                                            $avg9Result = $conn->query($avg9am);
+                                            if(!$avg9Result){
+                                                echo $conn->error;
+                                             } 
+                                             else {
+                                                    // echo "adding avg"; 
+                                                    if(is_null($avg9Result)){
+                                                        $_SESSION['avg9am'] = '1';
+                                                    } else {
+                                                        $_SESSION['avg9am'] = $avg9Result;
+                                                    }
+                                                }
                                         } 
                                         ?>
 

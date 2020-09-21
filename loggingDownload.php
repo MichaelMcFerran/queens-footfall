@@ -1,22 +1,21 @@
 <?php
 //db config/connection
 include('conn.php');
-// if(isset($_POST['download'])){
-    // $selectDownload = "SELECT * FROM FMusers WHERE RoomID = '$currentroomId' AND BuildingID = '$buildingId' AND `Time` BETWEEN '$newDate 00:00:00' AND '$newDate 23:59:59' ORDER BY `Time` DESC";
-    // $selectDownload = "SELECT * FROM FMusers WHERE RoomID = '$currentroomId' AND BuildingID = '$buildingId' ORDER BY `Time` DESC"; this is specifc download, trying generic all first
+    //sql for getting data from db
     $selectDownload = "SELECT * FROM FMusers ORDER BY `Time` DESC";
     $downloadResult = $conn->query($selectDownload);
     if(!$downloadResult){
     echo $conn->error;
     }
+    //download only if sql query returns data results
     if($downloadResult->num_rows > 0){
-        $delimiter = ",";
-        $filename = "footfallData_" . date('Y-m-d') . ".csv";
+        $delimiter = ","; //used to separate each string of data
+        $filename = "footfallData_" . date('Y-m-d') . ".csv"; //name each download according to todays date and put in a .csv file
 
         //file pointer
         $file = fopen('php://memory', 'w');
 
-        //set headers for columns
+        //set headers for columns in new data file
         $fields = array('FootfallID','RoomID','BuildingID','CurrentFootfall','Time');
         fputcsv($file, $fields, $delimiter);
 
