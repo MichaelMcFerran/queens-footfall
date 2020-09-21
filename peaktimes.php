@@ -10,11 +10,6 @@ session_start();
  if(!isset($_SESSION['public'])){
     header("location: index.php");
  }
- //sets var of user
-$id = $_SESSION['public'];
-//sets room and building passed in from session variable so they can be used in php querys
-$room = $_SESSION['room'];
-$building = $_SESSION['building'];
 
 // finds logged data entry that can populate table on down the page
 include('conn.php'); //changed to /
@@ -78,7 +73,17 @@ include('conn.php'); //changed to /
                 <div class="container">
                     <div class ="row">
                         <div class="hero-text">
-                            <h4> Building is : <?php sd $building?> and room is : <?php $room?> </h4> 
+                            <h4>
+                                <?php 
+                                    //sets var of user
+                                    // $id = $_SESSION['public'];
+                                    //sets room and building passed in from session variable so they can be used in php querys
+                                    $room = $_SESSION['room'];
+                                    $building = $_SESSION['building'];
+                                    echo " Data shown for $building and room is $room";
+                                ?> 
+                            </h4>
+                            
                             <h1>Average footfall - PHP date. Capacity - PHP</h1>
                     </div>
                     <!-- <div class="row"> -->
