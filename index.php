@@ -158,8 +158,8 @@ if(!$resultLog){
                                                             $currentroomId =$row2['roomID']; 
                                                         }
                                                     }
-                                                //db entry
-                                                $selectToday = "SELECT * FROM FMusers WHERE RoomID = '$currentroomId' AND BuildingID = '$buildingId' AND `Time` BETWEEN '$currentdate 00:00:00' AND '$currentdate 23:59:59' ORDER BY `Time` DESC LIMIT 3";
+                                                //db entry, limited to 2 as otherwise the button layout gets messed up
+                                                $selectToday = "SELECT * FROM FMusers WHERE RoomID = '$currentroomId' AND BuildingID = '$buildingId' AND `Time` BETWEEN '$currentdate 00:00:00' AND '$currentdate 23:59:59' ORDER BY `Time` DESC LIMIT 2";
                                                 //db query
                                                 $todayResult = $conn->query($selectToday);
                                                 if(!$todayResult){
