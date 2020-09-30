@@ -73,18 +73,19 @@ if(!$resultLog){
                     <div class="hero-text"> 
                         <h4>
                             <?php 
-                            $buildingId = 1; //need to find out how to increment per carousel slide
-                            $building = "SELECT DISTINCT buildingName FROM FMBuildings WHERE BuildingID = '$buildingId'";
-                            $nameResult = $conn->query($building);
-                            if(!$nameResult){
-                            echo $conn->error;
-                            } else {
-                                while ($row = $nameResult->fetch_assoc()){
-                                    //finds row from table
-                                    $name = $row['buildingName'];
-                                    echo "$name";
-                                    }
-                            }
+                            // unnecessary now
+                            // $buildingId = 1; //need to find out how to increment per carousel slide
+                            // $building = "SELECT DISTINCT buildingName FROM FMBuildings WHERE BuildingID = '$buildingId'";
+                            // $nameResult = $conn->query($building);
+                            // if(!$nameResult){
+                            // echo $conn->error;
+                            // } else {
+                            //     while ($row = $nameResult->fetch_assoc()){
+                            //         //finds row from table
+                            //         $name = $row['buildingName'];
+                            //         echo "$name";
+                            //         }
+                            // }
                             ?>
                         </h4>
                         <h1>Room Selection</h1>
@@ -94,7 +95,8 @@ if(!$resultLog){
                                     <select name="RoomBuilding1">
 
                                     <?php
-                                    $roomlist = "SELECT roomName FROM FMRooms WHERE buildingName = '$name'";
+                                    // $roomlist = "SELECT roomName FROM FMRooms WHERE buildingName = '$name'";
+                                    $roomlist = "SELECT roomName FROM FMRooms WHERE buildingID = '$buildingID'";
                                     $roomResult = $conn->query($roomlist);
                                     if(!$roomResult){
                                     echo $conn->error;
@@ -114,7 +116,6 @@ if(!$resultLog){
                                     <input type="date" title="start date" name="date">
                                 </div>
                                 <div class="col-lg-4">
-                                    <!-- <button type="submitDataB1" class="primary-btn" name="postB">Show Data</button> -->
                                     <button type="submitDataB1" name="postB">Show Data</button>
                                 </div>
                             </div>                     
