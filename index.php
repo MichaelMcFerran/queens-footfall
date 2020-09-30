@@ -97,7 +97,7 @@ if(!$resultLog){
                                     <?php
                                     // $roomlist = "SELECT roomName FROM FMRooms WHERE buildingName = '$name'";
                                     $buildingId = 1; //need to find out how to increment per carousel slide
-                                    $roomlist = "SELECT roomName FROM FMRooms WHERE buildingID = '$buildingID'";
+                                    $roomlist = "SELECT roomName FROM FMRooms WHERE buildingID = '$buildingId'";
                                     $roomResult = $conn->query($roomlist);
                                     if(!$roomResult){
                                     echo $conn->error;
