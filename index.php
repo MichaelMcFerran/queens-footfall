@@ -441,18 +441,18 @@ if(!$resultLog){
                     <div class="hero-text"> 
                         <h4>
                             <?php 
-                            $buildingId = 2; //need to find out how to increment per carousel slide
-                            $building = "SELECT DISTINCT buildingName FROM FMBuildings WHERE BuildingID = '$buildingId'";
-                            $nameResult = $conn->query($building);
-                            if(!$nameResult){
-                            echo $conn->error;
-                            } else {
-                                while ($row = $nameResult->fetch_assoc()){
-                                    //finds row from table
-                                    $name = $row['buildingName'];
-                                    echo "$name";
-                                    }
-                            }
+                            // $buildingId = 2; //need to find out how to increment per carousel slide
+                            // $building = "SELECT DISTINCT buildingName FROM FMBuildings WHERE BuildingID = '$buildingId'";
+                            // $nameResult = $conn->query($building);
+                            // if(!$nameResult){
+                            // echo $conn->error;
+                            // } else {
+                            //     while ($row = $nameResult->fetch_assoc()){
+                            //         //finds row from table
+                            //         $name = $row['buildingName'];
+                            //         echo "$name";
+                            //         }
+                            // }
                             ?>
                         </h4>
                         <h1>Room Selection</h1>
@@ -462,7 +462,9 @@ if(!$resultLog){
                                     <select name="RoomBuilding">
 
                                     <?php
-                                    $roomlist = "SELECT roomName FROM FMRooms WHERE buildingName = '$name'";
+                                    // $roomlist = "SELECT roomName FROM FMRooms WHERE buildingName = '$name'";
+                                    $buildingId = 2; //need to find out how to increment per carousel slide
+                                    $roomlist = "SELECT roomName FROM FMRooms WHERE buildingName = '$buildingId'";
                                     $roomResult = $conn->query($roomlist);
                                     if(!$roomResult){
                                     echo $conn->error;
@@ -832,6 +834,8 @@ if(!$resultLog){
 
                                                 <?php
                                                 // $roomlist = "SELECT roomName FROM FMRooms WHERE buildingName = '$name'";
+                                                // $buildingId = 2; //need to find out how to increment per carousel slide
+                                                // $roomlist = "SELECT roomName FROM FMRooms WHERE buildingName = '$buildingId'";
                                                 // $roomResult = $conn->query($roomlist);
                                                 // if(!$roomResult){
                                                 // echo $conn->error;
