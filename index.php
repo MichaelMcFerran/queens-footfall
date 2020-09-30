@@ -463,8 +463,8 @@ if(!$resultLog){
 
                                     <?php
                                     // $roomlist = "SELECT roomName FROM FMRooms WHERE buildingName = '$name'";
-                                    $buildingId = 2; //need to find out how to increment per carousel slide
-                                    $roomlist = "SELECT roomName FROM FMRooms WHERE buildingName = '$buildingId'";
+                                    $buildingId2 = 2; //need to find out how to increment per carousel slide
+                                    $roomlist = "SELECT roomName FROM FMRooms WHERE buildingName = '$buildingId2'";
                                     $roomResult = $conn->query($roomlist);
                                     if(!$roomResult){
                                     echo $conn->error;
