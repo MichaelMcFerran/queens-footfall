@@ -4,13 +4,11 @@
 <?php
 //start a session to pass variables onto other pages when needed
 session_start();
-
 // finds logged data entry that can populate table on down the page
 include('conn.php'); 
 $dBLogConnect = "SELECT * FROM FMusers ORDER BY `Time` DESC
 LIMIT 20"; //added limit for media device viewing
 $resultLog = $conn->query($dBLogConnect);
-
 if(!$resultLog){
   echo $conn->error;
 }

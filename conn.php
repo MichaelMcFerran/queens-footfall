@@ -1,4 +1,3 @@
-<!-- doesnt work -->
 <!-- Below File is crucial for connecting each PHP script to DB, and is reusable each time -->
 <?php
         $host = "eu-cdbr-west-03.cleardb.net";
