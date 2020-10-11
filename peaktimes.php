@@ -84,7 +84,6 @@ session_start();
                                         } 
                                         else {
                                                 while($row15=$resultCap->fetch_assoc()){
-                                                
                                                     // gets capacity from databases' rooms table
                                                     $roomCap =$row15['Capacity']; 
                                                 }

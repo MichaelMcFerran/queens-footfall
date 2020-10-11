@@ -79,7 +79,7 @@ if(!$resultLog){
                             } else {
                                 while ($row = $nameResult->fetch_assoc()){
                                     //finds row from table
-                                    $name = $row['buildingName'];
+                                    $name = $row['buildingName2']; //wrong
                                     echo "$name";
                                     }
                             }
@@ -90,26 +90,22 @@ if(!$resultLog){
                             <div class="row">
                                 <div class="col-lg-4">
                                     <select name="RoomBuilding1">
-
                                     <?php
-                                    // $roomlist = "SELECT roomName FROM FMRooms WHERE buildingName = '$name'";
                                     $roomlist = "SELECT roomName FROM FMRooms WHERE buildingID = '$buildingId'";
                                     $roomResult = $conn->query($roomlist);
                                     if(!$roomResult){
                                     echo $conn->error;
                                     }
-                                    
+
                                     while ($row = $roomResult->fetch_assoc()){
                                     //finds row from table
                                     $rooms = $row['roomName'];
                                     echo "<option value='$rooms'>$rooms</option>";
                                     }
                                     ?>
-
                                     </select>
                                 </div>
-                                <div class="col-lg-4">
-                                    
+                                <div class="col-lg-4">  
                                     <input type="date" title="start date" name="date">
                                 </div>
                                 <div class="col-lg-4">
@@ -549,7 +545,7 @@ if(!$resultLog){
                                                     }
                                                 }
 
-                                                                                            //creates a session based on public user, no login needed, and passing variables from pressing show data then the view trends button
+                                            //creates a session based on public user, no login needed, and passing variables from pressing show data then the view trends button
                                             $_SESSION['public'] = "publicuser"; //used to confirm that show data pressed before view trends
                                             $_SESSION['room'] = $room;
                                             $_SESSION['building'] = $name;
@@ -1216,7 +1212,6 @@ if(!$resultLog){
                                             <?php
                                             //must be name of result to check dB data on top, fetchs data
                                                 while($row=$resultLog->fetch_assoc()){
-                                                    
                                                     //var names = row of data with explicit dB row name used
                                                     $build =$row['BuildingID'];
                                                     $room =$row['RoomID']; 
@@ -1224,7 +1219,6 @@ if(!$resultLog){
                                                     $Times =$row['Time'];       
                                                 //now echo to display vars with fetched data from dB
                                                 echo "
-                                                
                                                 <tr>
                                                 <td>$build</td> 
                                                 <td>$room</td> 

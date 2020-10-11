@@ -28,16 +28,12 @@ include('conn.php');
         //move back to beginning of file
         fseek($file, 0);
 
-        //set headers to download file rather than display, needs to be on it's own page to change header info!
+        //set headers to download file rather than display
         header('Content-Type: text/csv');
         header('Content-Disposition: attachment; filename="' . $filename . '";');
 
         //output all remaining data on a file pointer
         fpassthru($file);
     }
-    
     exit;
-  
- //}
-
 ?>
