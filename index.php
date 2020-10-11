@@ -79,7 +79,7 @@ if(!$resultLog){
                             } else {
                                 while ($row = $nameResult->fetch_assoc()){
                                     //finds row from table
-                                    $name = $row['buildingName2']; //wrong
+                                    $name = $row['buildingName']; 
                                     echo "$name";
                                     }
                             }
